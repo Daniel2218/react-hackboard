@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <script src="https://use.fontawesome.com/8de37c3432.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/navStyle.css">
+    <title>Dashboard</title>
+  </head>
+    <body>
+      <ul id = "header">
+        <div id="top-half">
+          <div id="inner-top-half">
+            <a target="_blank" href="http://qhacks.io/"><img src="img/logo.png" alt="Hackathon Logo" class="hvr-grow" ></a>
+            Qhacks<span style = "font-weight:bold"> Admin </span>
+          </div>
+        </div>
+        <div class ="dropdown" style ="border-left: 1px solid black;">
+          <li class = "dropbtn"> <i class="fa fa-address-book" aria-hidden="true"></i> <span> Welcome User </span> <i class="fa fa-angle-down" aria-hidden="true"></i></li>
+          <div class="dropdown-content">
+            <div> <a href="#"><i class="fa fa-user" aria-hidden="true"></i> My Profile</a></div>
+            <div> <a href="logout.php"><i class="fa fa-level-up" aria-hidden="true"></i> Logout</a></div>
+          </div>
+        </div>
+        <div class ="dropdown div-size-2">
+          <li class = "dropbtn"> <i class="fa fa-envelope-o" aria-hidden="true"></i> <span> Messages </span> <i class="fa fa-angle-down" aria-hidden="true"></i> </li>
+          <div class="dropdown-content">
+            <div> <a href="#">Link 1</a> </div>
+            <div> <a href="#">Link 2</a> </div>
+            <div> <a href="#">Link 3</a> </div>
+          </div>
+        </div>
+        <div class ="dropdown div-size-1">
+          <li class = "dropbtn">
+              <a href="default.asp"> <i class="fa fa-cog" aria-hidden="true"></i><span> Settings </span> </a>
+          </li>
+        </div>
+        <div class ="dropdown div-size-1">
+          <li class = "dropbtn"><a href="logout.php"><i class="fa fa-level-up" aria-hidden="true"></i> <span> Logout </span> </a></li>
+        </div>
+        <div id ="pathheader">
+           <a href="applications.php" id = "spn-grey">
+             <i class="fa fa-home" id = "i-space-1" aria-hidden="true"></i> Home
+           </a.
+           <i class="fa fa-angle-right" id ="i-space-2" saria-hidden="true"></i>
+           <a href="sponsors.php"> Sponsors </a>
+        </div>
+      </ul>
+  </body>
+  <!-- MAYBE MOVE BODY DOWN ??? -->
+      <div id = "nav">
+          <ul>
+              <!-- <?php
+                  foreach ($manager->pages as $doc) {
+                      if($doc->fullName != "applicant.php") {
+                          echo "<li id='$doc->lowerName'><a href='$doc->fullName'><i class='fa fa-$doc->iconName' aria-hidden='true'></i><span>$doc->strippedName</span></a></li>";
+                      }
+                  }
+               ?> -->
+          </ul>
+      </div>
+</html>
