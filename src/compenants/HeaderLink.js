@@ -8,9 +8,9 @@ class HeaderLink extends React.Component {
 
   render() {
     const className = this.props.className;
-    const iconName      = this.props.iconName;
-    const value         = this.props.value;
-    const extraIcon     = this.props.extraIcon;
+    const iconName  = this.props.iconName;
+    const value     = this.props.value;
+    const extraIcon = this.props.extraIcon;
 
     return (
       <div class="dropdown div-size-1">

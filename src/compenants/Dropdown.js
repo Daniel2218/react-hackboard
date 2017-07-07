@@ -9,7 +9,6 @@ class Dropdown extends React.Component {
   render() {
     const divClassName = "dropdown" + this.props.divClassName === undefined ? "";
     const className    = this.props.className;
-    const href         = this.props.href;
     const iconName     = this.props.iconName;
     const value        = this.props.value;
     const extraIcon    = this.props.extraIcon;
@@ -17,7 +16,6 @@ class Dropdown extends React.Component {
     return (
       <div class=divClassName>
         <Link className=className
-              href     =href
               iconName =iconName
               value    =value
               extraIcon=extraIcon>
