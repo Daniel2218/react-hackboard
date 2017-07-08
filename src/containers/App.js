@@ -1,56 +1,52 @@
 import React, { Component } from 'react';
 import './App.css';
+import Link from "compenants/Link.js";
+import HeaderLink from "compenants/HeaderLink.js";
+import SideBar from "compenants/SideBar.js";
+import Dropdown from "compenants/Dropdown.js";
 
 class App extends Component {
-  function WelcomeUser() {
-    render() {
-      return (
-        <Dropdown style    ="border-left: 1px solid black;"
-                  href     ="#"
-                  iconName ="fa fa-address-book"
-                  value    ="Welcome User"
-                  extraIcon="fa fa-angle-down">
-          <Link className="dropbtn" href="#" iconName="fa fa-user" value="My Profile"> </Link>
-          <Link className="dropbtn" href="#" iconName="fa fa-level-up" value="Logout"> </Link>
-        </Dropdown>
-      );
-    }
+  constructor() {
+    super();
+    this.handlePageChange = this.handlePageChange.bind(this);
+    this.state = {pageName: "Applications"};
   }
 
-  function Messages() {
-    render() {
-      return (
-        <Dropdown href     ="#"
-                  iconName ="fa fa-envelope-o"
-                  value    ="Messages"
-                  extraIcon="fa fa-angle-down">
-          <Link className="dropbtn" href="#" iconName="" value="Link 1"> </Link>
-          <Link className="dropbtn" href="#" iconName="" value="Link 2"> </Link>
-        </Dropdown>
-      );
-    }
+  handlePageChange(pageName) {
+    this.setState({pageName: pageName});
   }
 
   render() {
-    <ul id = "header">
-      <div id="top-half">
-        <div id="inner-top-half">
-          <a target="_blank" href="http://qhacks.io/">
-            <img src="img/logo.png" alt="myHackathon logo" class="hvr-grow"></img>
-          </a>
-          Qhacks <span style = "font-weight:bold"> Admin </span>
+    return (
+      <ul id = "header">
+        <div id="top-half">
+          <div id="inner-top-half">
+            <a target="_blank" href="http://qhacks.io/">
+              <img src="img/logo.png" alt="myHackathon logo" class="hvr-grow"></img>
+            </a>
+            Qhacks <span style = "font-weight:bold"> Admin </span>
+          </div>
         </div>
+        <WelcomeUser></WelcomeUser>
+        <Messages></Messages>
+        <HeaderLink className="dropbtn" iconName="fa fa-cog" value="Settings"></HeaderLink>
+        <HeaderLink className="dropbtn" iconName="fa fa-level-up" value="Logout"></HeaderLink>
+      </ul>
+      <PathHeader></PathHeader>
+      <SideBar onPageChange={this.handlePageChange}></SideBar>
+      <div class = "tableSection">
+        <div id ="title">
+            <h1> {this.state.pageName} </h1>
+        </div>
+        <hr></hr>
+        <TableHeader name={this.state.pageName}></TableHeader>
+        <Table></Table>
       </div>
-      <WelcomeUser></WelcomeUser>
-      <Messages></Messages>
-      <HeaderLink className="dropbtn" href="#" iconName="fa fa-cog" value="Settings"></HeaderLink>
-      <HeaderLink className="dropbtn" href="#" iconName="fa fa-level-up" value="Logout"></HeaderLink>
-    </ul>
-    <SideBar></SideBar>
-    <footer id="footer">
-      <p>2017 © QHacks Exec. Brought to you by Daniel Lucia</p>
-    </footer>
-  }
+      <footer id="footer">
+        <p>2017 © QHacks Exec. Brought to you by Daniel Lucia</p>
+      </footer>
+    }
+  );
 }
 
 export default App;
