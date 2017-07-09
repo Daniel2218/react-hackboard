@@ -10,7 +10,7 @@ class TableHeader extends React.Component {
     return (
       <div id="tableHeader">
         <span> <i className="fa fa-th" aria-hidden="true"></i></span>
-        <h5> {this.props.name} </h5>
+        <h5> {this.props.currentPage} </h5>
         {this.props.children}
       </div>
     );

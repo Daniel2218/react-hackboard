@@ -14,26 +14,26 @@ class App extends Component {
     super();
     this.handlePageChange = this.handlePageChange.bind(this);
     this.state = {
-      pageName: "Applications",
+      currentPage: "Applications",
       tableHeaders: ["FirstName", "LastName", "Phone", "Hacks", "App"]
     };
   }
 
-  handlePageChange(pageName) {
-    this.setState({pageName: pageName});
+  handlePageChange(currentPage) {
+    this.setState({currentPage: currentPage});
   }
 
   render() {
     return (
       <div>
           <NavBar />
-          <SideBar onPageChange={this.handlePageChange}/>
+          <SideBar currentPage={this.state.currentPage} onPageChange={this.handlePageChange}/>
           <div className="tableSection">
             <div id="title">
-                <h1> {this.state.pageName} </h1>
+                <h1> {this.state.currentPage} </h1>
             </div>
             <hr></hr>
-            <TableHeader name={this.state.pageName} />
+            <TableHeader currentPage={this.state.currentPage} />
             <Table header={this.state.tableHeaders}/>
           </div>
           <footer id="footer">

@@ -14,12 +14,15 @@ class Link extends React.Component {
   render() {
     const extraIcon = this.props.extraIcon === undefined ? false : this.props.extraIcon;
     const className = this.props.className;
+    var id = this.props.currentPage === this.props.value ? "makeVisted" : ""
 
     return (
-      <li onClick={this.handleClick} className={className}>
+      <li id={id} onClick={this.handleClick} className={className}>
+        <div>
         <i className={this.props.iconName} aria-hidden='true'></i>
         <span>{this.props.value}</span>
         {extraIcon && <i className={this.props.extraIcon} aria-hidden='true'></i>}
+      </div>
       </li>
     );
   }
