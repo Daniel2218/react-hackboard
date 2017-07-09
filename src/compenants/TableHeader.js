@@ -9,7 +9,7 @@ class TableHeader extends React.Component {
   render() {
     return (
       <div id="tableHeader">
-        <span> <i class="fa fa-th" aria-hidden="true"></i></span>
+        <span> <i className="fa fa-th" aria-hidden="true"></i></span>
         <h5> {this.props.name} </h5>
         {this.props.children}
       </div>

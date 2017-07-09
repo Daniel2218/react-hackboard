@@ -15,7 +15,7 @@ class App extends Component {
     this.handlePageChange = this.handlePageChange.bind(this);
     this.state = {
       pageName: "Applications",
-      tableHeaders: ["First Name", "Last Name", "Phone", "Hacks", "App"]
+      tableHeaders: ["FirstName", "LastName", "Phone", "Hacks", "App"]
     };
   }
 

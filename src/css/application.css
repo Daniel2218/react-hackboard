@@ -1,22 +1,18 @@
 html {
     height: 100%;
+    width: 100%;
 }
 body {
-    font-family: 'Open Sans', sans-serif;
-    min-height: 100%;
-}
-#insideBlock {
-    position: absolute;
-    width: 100%;
-    min-height: 100%;
-    background-color: #eeeeee;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+   min-height: 100%;
 }
 .tableSection {
     background-color: #eeeeee;
     margin-left: 200px;
     padding-left: 10px;
-    min-height: calc(100% - 68px);
-    min-width: calc(100% - 210px);
+    height: 84vh;
 }
 .statBox {
     display: inline-block;
@@ -102,7 +98,7 @@ tr:hover { background-color: #eeeeee; }
     padding: 12px;
     font-weight: bold;
     font-size: 12px;
-    width: calc(100% - 10px);
+    width: calc(100% - 35px);
 }
 #tableHeader > span {
     float: left;

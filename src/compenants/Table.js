@@ -11,18 +11,18 @@ class Table extends React.Component {
       <table>
         <tbody>
           <tr>
-            <th>{this.props.header[0]}</th>;
-            <th>{this.props.header[1]}</th>;
-            <th>{this.props.header[2]}</th>;
-            <th>{this.props.header[3]}</th>;
-            <th>{this.props.header[4]}</th>;
+            <th>{this.props.header[0]}</th>
+            <th>{this.props.header[1]}</th>
+            <th>{this.props.header[2]}</th>
+            <th>{this.props.header[3]}</th>
+            <th>{this.props.header[4]}</th>
           </tr>
           <tr className="tr-color">
-              <td><a href="#"> Daniel </a></td>
-              <td><a href="#"> Lucia </a></td>
-              <td><a href="#"> 14dvl@queensu.ca </a></td>
-              <td><a href="#"> Lucia </a></td>
-              <td><a href="#"> 14dvl@queensu.ca </a></td>
+              <td><a href="#">Daniel</a></td>
+              <td><a href="#">Lucia</a></td>
+              <td><a href="#">14dvl@queensu.ca</a></td>
+              <td><a href="#">Lucia</a></td>
+              <td><a href="#">14dvl@queensu.ca</a></td>
           </tr>
         </tbody>
       </table>

@@ -127,10 +127,10 @@ h1 {
     color: white;
     background: url(../images/menu-active.png) no-repeat scroll right center transparent !important;
 }
-/*a {
+a {
      text-decoration: none;
      color: #939da8;
-}*/
+}
 img { width: 40px; margin-right: 4px !important;}
 #nav > ul > li:hover { color:white; }
 #nav > ul > li > i { margin-right: 10px; }
