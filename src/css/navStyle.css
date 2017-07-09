@@ -111,24 +111,29 @@ h1 {
     border-top: 1px solid #37414b;
     border-bottom: 1px solid #1f262d;
     line-height: 20px;
-}
-#nav > ul > li > a {
     padding: 10px 0 10px 15px;
     display: block;
     height: 100%;
-}
-#makeVisted { background-color: #27a9e3; }
-#makeVisted > a {
-    color: white;
-    background: url(../img/menu-active.png) no-repeat scroll right center transparent !important;
-}
-a {
-     text-decoration: none;
      color: #939da8;
 }
+/*#nav > ul > li > a {
+    padding: 10px 0 10px 15px;
+    display: block;
+    height: 100%;
+}*/
+/*#makeVisted { background-color: #27a9e3; }*/
+#makeVisted {
+    background-color: #27a9e3;
+    color: white;
+    background: url(../images/menu-active.png) no-repeat scroll right center transparent !important;
+}
+/*a {
+     text-decoration: none;
+     color: #939da8;
+}*/
 img { width: 40px; margin-right: 4px !important;}
-#nav > ul > li > a:hover { color:white; }
-#nav > ul > li > a > i { margin-right: 10px; }
+#nav > ul > li:hover { color:white; }
+#nav > ul > li > i { margin-right: 10px; }
 #nav > ul > li:hover{ background-color: #27a9e3; }
 @media screen and (max-width: 970px) {
     #nav > ul > li > a > span {

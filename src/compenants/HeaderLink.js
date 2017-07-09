@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactDOM from "reactdom";
+import ReactDOM from "react-dom";
+import Link from "./Link.js";
 
 class HeaderLink extends React.Component {
   constructor(props) {
@@ -13,13 +14,15 @@ class HeaderLink extends React.Component {
     const extraIcon = this.props.extraIcon;
 
     return (
-      <div class="dropdown div-size-1">
-        <Link className=className
-              iconName =iconName
-              value    =value
-              extraIcon=extraIcon>
+      <div className="dropdown div-size-1">
+        <Link className={className}
+              iconName ={iconName}
+              value    ={value}
+              extraIcon={extraIcon}>
         </Link>
     </div>
     );
   }
 }
+
+export default HeaderLink;

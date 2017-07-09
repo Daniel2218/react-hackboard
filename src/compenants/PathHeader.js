@@ -10,10 +10,12 @@ class PathHeader extends React.Component {
     return (
         <div id ="pathheader">
           <a href="#" id="spn-grey">
-               <i class="fa fa-home" id="i-space-1" aria-hidden="true"></i> Home
+               <i className="fa fa-home" id="i-space-1" aria-hidden="true"></i> Home
            </a>
-           {props.children}
+           {this.props.children}
         </div>
     );
   }
 }
+
+export default PathHeader;

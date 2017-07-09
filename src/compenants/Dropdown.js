@@ -1,5 +1,6 @@
 import React from "react";
-import ReactDOM from "reactdom";
+import ReactDOM from "react-dom";
+import Link from "./Link.js";
 
 class Dropdown extends React.Component {
   constructor(props){
@@ -7,23 +8,25 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    const divClassName = "dropdown" + this.props.divClassName === undefined ? "";
+    const divClassName = this.props.divClassName;
     const className    = this.props.className;
     const iconName     = this.props.iconName;
     const value        = this.props.value;
     const extraIcon    = this.props.extraIcon;
-
+  
     return (
-      <div class=divClassName>
-        <Link className=className
-              iconName =iconName
-              value    =value
-              extraIcon=extraIcon>
+      <div className={divClassName}>
+        <Link className={className}
+              iconName ={iconName}
+              value    ={value}
+              extraIcon={extraIcon}>
         </Link>
-        <div class="dropdown-content">
+        <div className="dropdown-content">
           {this.props.children}
         </div>
       </div>
     );
   }
 }
+
+export default Dropdown;

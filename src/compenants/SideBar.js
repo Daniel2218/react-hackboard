@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Link from "../compenants/Link.js";
 
 class SideBar extends React.Component {
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
     }
 
     render() {
@@ -20,3 +21,5 @@ class SideBar extends React.Component {
       );
     }
 }
+
+export default SideBar;
