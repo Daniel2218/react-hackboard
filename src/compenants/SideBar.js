@@ -13,7 +13,7 @@ class SideBar extends React.Component {
           <ul>
             <Link onPageChange={this.props.onPageChange} iconName="fa fa-files-o" value="Applications"> </Link>
             <Link onPageChange={this.props.onPageChange} iconName="fa fa-gift" value="Prizes"> </Link>
-            <Link onPageChange={this.props.onPageChange} iconName="fa fa-calender" value="Schedule"> </Link>
+            <Link onPageChange={this.props.onPageChange} iconName="fa fa-calendar" value="Schedule"> </Link>
             <Link onPageChange={this.props.onPageChange} iconName="fa fa-university" value="Sponsors"> </Link>
             <Link onPageChange={this.props.onPageChange} iconName="fa fa-users" value="Users"> </Link>
           </ul>
