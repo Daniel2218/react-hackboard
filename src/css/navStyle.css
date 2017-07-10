@@ -76,10 +76,10 @@ html, body {
     margin-left: 10px;
 }
 #spn-grey { color: #666666; }
-#i-space-1 { margin-right: 2px; }
+#i-space-1 { margin-left: 9px; }
 #i-space-2 {
-    margin-left: 4px;
-    margin-right: 4px;
+    margin-left: 8px;
+    margin-right: 8px;
 }
 /* Side Bar */
 #nav {

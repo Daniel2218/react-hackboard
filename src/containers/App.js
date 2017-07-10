@@ -15,18 +15,39 @@ class App extends Component {
     this.handlePageChange = this.handlePageChange.bind(this);
     this.state = {
       currentPage: "Applications",
-      tableHeaders: ["FirstName", "LastName", "Phone", "Hacks", "App"]
+      tableHeaders: this.getTableHeaders()
     };
   }
 
   handlePageChange(currentPage) {
-    this.setState({currentPage: currentPage});
+    this.setState({
+      currentPage: currentPage,
+      tableHeaders: this.getTableHeaders()
+    });
+  }
+
+  getTableHeaders() {
+    var currentPage = this.state === undefined ? "Applications" : this.state.currentPage;
+    var tb = [];
+
+    if(currentPage === "Applications") {
+      tb = ["Applicant ID","First Name","Last Name","Hacks","Status"];
+    } else if (currentPage === "Prizes") {
+      tb = ["ID","First Name","Description","Obtained By","Donated By"];
+    } else if (currentPage === "Schedule") {
+      tb = ["Applicant ID","First Name","Last Name","Hacks","Status"];
+    } else if (currentPage === "Sponsors") {
+      tb = ["ID","First Name","Last Name","Email","Phone","Donation Amount","Donation Recieved"];
+    } else if (currentPage === "Users") {
+      tb = ["ID","First Name","Last Name","Email","Phone","Postion"];
+    }
+    return tb;
   }
 
   render() {
     return (
       <div>
-          <NavBar />
+          <NavBar currentPage={this.state.currentPage}/>
           <SideBar currentPage={this.state.currentPage} onPageChange={this.handlePageChange}/>
           <div className="tableSection">
             <div id="title">
@@ -34,7 +55,7 @@ class App extends Component {
             </div>
             <hr></hr>
             <TableHeader currentPage={this.state.currentPage} />
-            <Table header={this.state.tableHeaders}/>
+            <Table headers={this.state.tableHeaders}/>
           </div>
           <footer id="footer">
             <p>2017 © QHacks Exec. Brought to you by Daniel Lucia</p>

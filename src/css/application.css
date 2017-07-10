@@ -69,19 +69,16 @@ table, th {
 table {
     width: calc(100% - 10px);
 }
-table tr td > a {
-    display:block;
-    height:100%;
-    width: calc(100%-10px);
-}
 th {
     font-size: 10px;
     font-weight: bold;
     text-align: center;
 }
-td > a {
+td {
     font-size: 12px;
     padding: 10px;
+    text-decoration: none;
+    color: #939da8;
 }
 hr {
     margin: 20px 0;
@@ -91,7 +88,10 @@ hr {
     border-top-color: #dadada;
 }
 tr:hover { background-color: #eeeeee; }
-.tr-color { background-color: #f9f9f9; }
+.tr-color {
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
 #tableHeader{
     margin-top: 40px;
     border: 1px solid #cdcdcd;

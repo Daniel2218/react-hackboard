@@ -7,22 +7,20 @@ class Table extends React.Component {
   }
 
   render() {
+    const listOfHeaders = this.props.headers.map((header) =>
+      <th>{header}</th>
+    );
+
     return (
       <table>
         <tbody>
-          <tr>
-            <th>{this.props.header[0]}</th>
-            <th>{this.props.header[1]}</th>
-            <th>{this.props.header[2]}</th>
-            <th>{this.props.header[3]}</th>
-            <th>{this.props.header[4]}</th>
-          </tr>
+          <tr>{listOfHeaders}</tr>
           <tr className="tr-color">
-              <td><a href="#">Daniel</a></td>
-              <td><a href="#">Lucia</a></td>
-              <td><a href="#">14dvl@queensu.ca</a></td>
-              <td><a href="#">Lucia</a></td>
-              <td><a href="#">14dvl@queensu.ca</a></td>
+              <td>Daniel</td>
+              <td>Lucia</td>
+              <td>14dvl@queensu.ca</td>
+              <td>Lucia</td>
+              <td>14dvl@queensu.ca</td>
           </tr>
         </tbody>
       </table>

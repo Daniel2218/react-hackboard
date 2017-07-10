@@ -26,7 +26,7 @@ class NavBar extends React.Component {
         <Messages />
         <HeaderLink className="dropbtn" iconName="fa fa-cog" value="Settings" />
         <HeaderLink className="dropbtn" iconName="fa fa-level-up" value="Logout" />
-        <PathHeader />
+        <PathHeader currentPage={this.props.currentPage}/>
       </ul>
     );
   }
