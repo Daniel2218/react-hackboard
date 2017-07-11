@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import NavBar from "../compenants/NavBar.js";
 import SideBar from "../compenants/SideBar.js";
-import TableHeader from "../compenants/TableHeader.js";
 import Table from "../compenants/Table.js";
+import TableSection from "../compenants/PageSection.js";
+import Stat from "../compenants/Stat.js";
 
 import './App.css';
 import '../css/reset.css';
@@ -34,8 +35,6 @@ class App extends Component {
       tb = ["Applicant ID","First Name","Last Name","Hacks","Status"];
     } else if (currentPage === "Prizes") {
       tb = ["ID","First Name","Description","Obtained By","Donated By"];
-    } else if (currentPage === "Schedule") {
-      tb = ["Applicant ID","First Name","Last Name","Hacks","Status"];
     } else if (currentPage === "Sponsors") {
       tb = ["ID","First Name","Last Name","Email","Phone","Donation Amount","Donation Recieved"];
     } else if (currentPage === "Users") {
@@ -44,11 +43,24 @@ class App extends Component {
     return tb;
   }
 
+  Compenant() {
+    const compenants = "";
+
+    if(currentPage === "Applications") {
+      compenants =
+    }
+
+    return compenants;
+  }
+
   render() {
     return (
       <div>
           <NavBar currentPage={this.state.currentPage}/>
           <SideBar currentPage={this.state.currentPage} onPageChange={this.handlePageChange}/>
+          <PageSection currentPage={this.state.currentPage}
+            <Compenant />
+          />
           <div className="tableSection">
             <div id="title">
                 <h1> {this.state.currentPage} </h1>
