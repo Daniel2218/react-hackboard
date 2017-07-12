@@ -18,4 +18,4 @@ class StatBox extends React.Component {
   }
 }
 
-export defualt StatBox;
+export default StatBox;

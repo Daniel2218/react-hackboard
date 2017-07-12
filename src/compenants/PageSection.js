@@ -14,7 +14,6 @@ class PageSection extends React.Component {
             <h1> {this.props.currentPage} </h1>
         </div>
         <hr></hr>
-        <TableHeader currentPage={this.props.currentPage} />
         {this.props.children}
       </div>
     );

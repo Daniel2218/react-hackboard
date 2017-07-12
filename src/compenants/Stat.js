@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import StatBox from "../compenants/StatBox.js";
 
-class Stat extends React.compenants {
+class Stat extends React.Component {
   constructor(props) {
     super(props);
   }

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from "../compenants/NavBar.js";
 import SideBar from "../compenants/SideBar.js";
-import Table from "../compenants/Table.js";
-import TableSection from "../compenants/PageSection.js";
-import Stat from "../compenants/Stat.js";
+import Page from "../compenants/Page.js";
 
 import './App.css';
 import '../css/reset.css';
@@ -43,32 +41,14 @@ class App extends Component {
     return tb;
   }
 
-  Compenant() {
-    const compenants = "";
-
-    if(currentPage === "Applications") {
-      compenants =
-    }
-
-    return compenants;
-  }
-
   render() {
     return (
       <div>
           <NavBar currentPage={this.state.currentPage}/>
           <SideBar currentPage={this.state.currentPage} onPageChange={this.handlePageChange}/>
-          <PageSection currentPage={this.state.currentPage}
-            <Compenant />
+          <Page currentPage={this.state.currentPage}
+                headers={this.state.tableHeaders}
           />
-          <div className="tableSection">
-            <div id="title">
-                <h1> {this.state.currentPage} </h1>
-            </div>
-            <hr></hr>
-            <TableHeader currentPage={this.state.currentPage} />
-            <Table headers={this.state.tableHeaders}/>
-          </div>
           <footer id="footer">
             <p>2017 © QHacks Exec. Brought to you by Daniel Lucia</p>
           </footer>
