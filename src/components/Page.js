@@ -11,18 +11,22 @@ class Page extends React.Component {
   }
 
   render() {
+    const currentPage = this.props.currentPage;
     var page = "";
 
-    if(this.props.currentPage === "Applications") {
+    if(currentPage === "Applications") {
       page = <PageSection currentPage={this.props.currentPage}>
                 <Stat />
                 <TableHeader currentPage={this.props.currentPage} />
-                <Table headers={this.props.headers}/>
+                <Table currentPage={this.props.currentPage}/>
+              </PageSection>;
+    } else if (currentPage === "Schedule") {
+      page = <PageSection currentPage={this.props.currentPage}>
               </PageSection>;
     } else {
       page = <PageSection currentPage={this.props.currentPage}>
                 <TableHeader currentPage={this.props.currentPage} />
-                <Table headers={this.props.headers}/>
+                <Table currentPage={this.props.currentPage}/>
               </PageSection>;
     }
     return page;

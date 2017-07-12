@@ -13,32 +13,14 @@ class App extends Component {
     super();
     this.handlePageChange = this.handlePageChange.bind(this);
     this.state = {
-      currentPage: "Applications",
-      tableHeaders: this.getTableHeaders()
+      currentPage: "Applications"
     };
   }
 
   handlePageChange(currentPage) {
     this.setState({
-      currentPage: currentPage,
-      tableHeaders: this.getTableHeaders()
+      currentPage: currentPage
     });
-  }
-
-  getTableHeaders() {
-    var currentPage = this.state === undefined ? "Applications" : this.state.currentPage;
-    var tb = [];
-
-    if(currentPage === "Applications") {
-      tb = ["Applicant ID","First Name","Last Name","Hacks","Status"];
-    } else if (currentPage === "Prizes") {
-      tb = ["ID","First Name","Description","Obtained By","Donated By"];
-    } else if (currentPage === "Sponsors") {
-      tb = ["ID","First Name","Last Name","Email","Phone","Donation Amount","Donation Recieved"];
-    } else if (currentPage === "Users") {
-      tb = ["ID","First Name","Last Name","Email","Phone","Postion"];
-    }
-    return tb;
   }
 
   render() {
@@ -47,7 +29,8 @@ class App extends Component {
           <NavBar currentPage={this.state.currentPage}/>
           <SideBar currentPage={this.state.currentPage} onPageChange={this.handlePageChange}/>
           <Page currentPage={this.state.currentPage}
-                headers={this.state.tableHeaders}
+                tableHeaders={this.state.tableHeaders}
+                buttons={this.state.buttons}
           />
           <footer id="footer">
             <p>2017 © QHacks Exec. Brought to you by Daniel Lucia</p>
