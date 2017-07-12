@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Link from "../compenants/Link.js";
-import HeaderLink from "../compenants/HeaderLink.js";
-import Dropdown from "../compenants/Dropdown.js";
-import PathHeader from "../compenants/PathHeader.js";
+import Link from "./Link.js";
+import HeaderLink from "./HeaderLink.js";
+import Dropdown from "./Dropdown.js";
+import PathHeader from "./PathHeader.js";
 
 class NavBar extends React.Component {
   constructor(props){

@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import PageSection from "../compenants/PageSection.js";
-import Stat from "../compenants/Stat.js";
-import Table from "../compenants/Table.js";
-import TableHeader from "../compenants/TableHeader.js";
+import PageSection from "./PageSection.js";
+import Stat from "./Stat.js";
+import Table from "./Table.js";
+import TableHeader from "./TableHeader.js";
 
 class Page extends React.Component {
   constructor(props) {

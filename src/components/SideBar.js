@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Link from "../compenants/Link.js";
+import Link from "./Link.js";
 
 class SideBar extends React.Component {
     constructor(props) {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import NavBar from "../compenants/NavBar.js";
-import SideBar from "../compenants/SideBar.js";
-import Page from "../compenants/Page.js";
+import NavBar from "../components/NavBar.js";
+import SideBar from "../components/SideBar.js";
+import Page from "../components/Page.js";
 
 import './App.css';
 import '../css/reset.css';

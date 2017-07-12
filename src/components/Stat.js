@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import StatBox from "../compenants/StatBox.js";
+import StatBox from "./StatBox.js";
 
 class Stat extends React.Component {
   constructor(props) {
