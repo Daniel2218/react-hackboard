@@ -4,14 +4,17 @@ import ReactDOM from "react-dom";
 class TableHeader extends React.Component {
   constructor(props) {
     super(props);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
+  }
+
+  handleButtonClick() {
+    this.props.onButtonClick();
   }
 
   getButtons(currentPage) {
     var buttons = [];
 
-    if(currentPage === "Applications") {
-      buttons = ["Sort by hacks"];
-    } else if (currentPage === "Prizes") {
+    if (currentPage === "Prizes") {
       buttons = ["Add new prize"];
     } else if (currentPage === "Sponsors") {
       buttons = ["Add new sponsors"];
@@ -24,7 +27,7 @@ class TableHeader extends React.Component {
   render() {
     const currentPage = this.props.currentPage;
     const listOfButtons = this.getButtons(currentPage).map((buttonName) =>
-      <button onClick="">
+      <button onClick={this.handleButtonClick}>
             <i className={this.props.iconName} aria-hidden='true'></i> {buttonName}
       </button>
     );

@@ -6,24 +6,9 @@ class Table extends React.Component {
     super(props);
   }
 
-  getTableHeaders(currentPage) {
-    var th = [];
-
-    if(currentPage === "Applications") {
-      th = ["Applicant ID","First Name","Last Name","Hacks","Status"];
-    } else if (currentPage === "Prizes") {
-      th = ["ID","First Name","Description","Obtained By","Donated By"];
-    } else if (currentPage === "Sponsors") {
-      th = ["ID","First Name","Last Name","Email","Phone","Donation Amount","Donation Recieved"];
-    } else if (currentPage === "Users") {
-      th = ["ID","First Name","Last Name","Email","Phone","Postion"];
-    }
-    return th;
-  }
-
   render() {
     const currentPage = this.props.currentPage;
-    const listOfHeaders = this.getTableHeaders(currentPage).map((header) =>
+    const listOfHeaders = this.props.tableHeaders.map((header) =>
       <th>{header}</th>
     );
 

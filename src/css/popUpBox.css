@@ -1,5 +1,5 @@
 #pop-up-box {
-    display: none;
+    display: block;
     position: fixed;
     font-family: 'Open Sans', sans-serif;
     width: 500px;
@@ -26,11 +26,12 @@
     border-bottom: 1px solid #cdcdcd;
     background-color: white;
 }
-#middle > div {
+#middle > div  > div{
     display: inline-block;
-    margin-right: 50px;
+    margin-right: 42px;
 }
-#middle > div > p, #middle > p{
+
+#middle > div > div > p, #middle > p{
     margin-bottom: 15px;
     color: #666;
 }
@@ -87,7 +88,7 @@ textarea {
     right: 0px;
     background-color: #000;
     opacity: 0.8;
-    display: none;
+    display: block;
     z-index: 2;
 }
 @media screen and (max-width: 550px), screen and (max-height: 500px) {
