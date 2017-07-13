@@ -93,6 +93,7 @@ hr {
 tr:hover { background-color: #eeeeee; }
 .tr-color {
   background-color: #f9f9f9;
+  cursor: pointer;
 }
 #tableHeader{
     margin-top: 40px;
