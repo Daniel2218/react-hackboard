@@ -126,8 +126,7 @@ button {
     margin-right: 5px;
 }
 button > i {
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-right: 4px;
 }
 button:hover {
     background-color: white;

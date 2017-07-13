@@ -9,7 +9,8 @@ class Table extends React.Component {
 
     this.toggleModal = this.toggleModal.bind(this);
     this.state = {
-      showModal: false
+      showModal: false,
+      rows: this.getRows()
     };
   }
 
@@ -35,6 +36,33 @@ class Table extends React.Component {
     return th;
   }
 
+  getData() {
+    return [{
+      firstName: "Daniel",
+      lastName: "Lucia",
+      email: "14dvl@queensu.ca",
+      phone: "416-616-6498"
+    }];
+  }
+
+  getRows() {
+    return this.getData().map((row) =>
+      <tr className="tr-color">{this.getFormattedRow(row)}</tr>
+    );
+  }
+
+  getFormattedRow(row) {
+    var formatedRow = [];
+    for (var key in row) {
+        formatedRow.push(<td>{row[key]}</td>);
+    }
+    return formatedRow;
+  }
+
+  addRow(rowInfo) {
+    this.state.rows.push(<tr className="tr-color">{this.getFormattedRow(rowInfo)}</tr>);
+  }
+
   render() {
     const currentPage = this.props.currentPage;
     const listOfHeaders = this.getTableHeaders().map((header) =>
@@ -48,6 +76,7 @@ class Table extends React.Component {
         <table>
           <tbody>
             <tr>{listOfHeaders}</tr>
+            {/* {this.state.rows} */}
             <tr className="tr-color">
                 <td>Daniel</td>
                 <td>Lucia</td>

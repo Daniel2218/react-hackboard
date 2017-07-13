@@ -11,24 +11,35 @@ class TableHeader extends React.Component {
     this.props.onButtonClick();
   }
 
+  createAddButton() {
+    var currentPage = this.props.currentPage;
+    var buttonName = currentPage.substring(0, currentPage.length - 1);
+    var buttonStyle = currentPage.length > 6 ? {width: "125px"} : {};
+
+    return {
+        name: "Add new " + buttonName,
+        iconName: "fa fa-plus",
+        handleClick: this.handleButtonClick,
+        style: buttonStyle
+    };
+  }
+
   getButtons(currentPage) {
     var buttons = [];
 
-    if (currentPage === "Prizes") {
-      buttons = ["Add new prize"];
-    } else if (currentPage === "Sponsors") {
-      buttons = ["Add new sponsors"];
-    } else if (currentPage === "Users") {
-      buttons = ["Add new user"];
+    if (currentPage === "Prizes" || currentPage === "Sponsors" || currentPage === "Users") {
+        buttons.push(this.createAddButton());
     }
     return buttons;
   }
 
   render() {
     const currentPage = this.props.currentPage;
-    const listOfButtons = this.getButtons(currentPage).map((buttonName) =>
-      <button onClick={this.handleButtonClick}>
-            <i className={this.props.iconName} aria-hidden='true'></i> {buttonName}
+    // console.log(this.getButtons(currentPage).forEach());
+    const listOfButtons = this.getButtons(currentPage).map((buttonInfo) =>
+      <button onClick={buttonInfo.handleClick} style={buttonInfo.style}>
+            <i className={buttonInfo.iconName} aria-hidden='true'></i>
+            {buttonInfo.name}
       </button>
     );
 
