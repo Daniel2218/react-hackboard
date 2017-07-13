@@ -11,6 +11,7 @@ class TableHeader extends React.Component {
     this.props.onButtonClick();
   }
 
+  // because its a common button, I have a seperate helper function
   createAddButton() {
     var currentPage = this.props.currentPage;
     var buttonName = currentPage.substring(0, currentPage.length - 1);
@@ -35,7 +36,6 @@ class TableHeader extends React.Component {
 
   render() {
     const currentPage = this.props.currentPage;
-    // console.log(this.getButtons(currentPage).forEach());
     const listOfButtons = this.getButtons(currentPage).map((buttonInfo) =>
       <button onClick={buttonInfo.handleClick} style={buttonInfo.style}>
             <i className={buttonInfo.iconName} aria-hidden='true'></i>

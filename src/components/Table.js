@@ -37,17 +37,26 @@ class Table extends React.Component {
   }
 
   getData() {
-    return [{
-      firstName: "Daniel",
-      lastName: "Lucia",
-      email: "14dvl@queensu.ca",
-      phone: "416-616-6498"
-    }];
+    return [
+      {
+        firstName: "Daniel",
+        lastName: "Lucia",
+        email: "14dvl@queensu.ca",
+        phone: "416-616-6498"
+      }
+    ];
   }
 
   getRows() {
+    var style = {};
+    var onClick = "";
+    if (this.props.currentPage === "Applications") {
+      style = {
+        cursor: "pointer"
+      };
+    }
     return this.getData().map((row) =>
-      <tr className="tr-color">{this.getFormattedRow(row)}</tr>
+      <tr className="tr-color" style={style}>{this.getFormattedRow(row)}</tr>
     );
   }
 
@@ -76,14 +85,7 @@ class Table extends React.Component {
         <table>
           <tbody>
             <tr>{listOfHeaders}</tr>
-            {/* {this.state.rows} */}
-            <tr className="tr-color">
-                <td>Daniel</td>
-                <td>Lucia</td>
-                <td>14dvl@queensu.ca</td>
-                <td>Lucia</td>
-                <td>14dvl@queensu.ca</td>
-            </tr>
+            {this.state.rows}
           </tbody>
         </table>
         {this.state.showModal && <Modal tableHeaders={this.getTableHeaders()} toggleModal={this.toggleModal}/>}
