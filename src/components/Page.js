@@ -13,7 +13,13 @@ class Page extends React.Component {
     const currentPage = this.props.currentPage;
     var page = "";
 
-    if (currentPage === "Schedule") {
+    if(currentPage === "Applications") {
+      page = <PageSection currentPage={this.props.currentPage}>
+                <Stat />
+                <Table currentPage={this.props.currentPage}
+                       onButtonClick={this.toggleModal} />
+              </PageSection>;
+    } else if (currentPage === "Schedule") {
       page = <PageSection currentPage={this.props.currentPage}>
               </PageSection>;
     } else {
