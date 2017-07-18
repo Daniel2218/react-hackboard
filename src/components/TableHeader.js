@@ -8,7 +8,7 @@ class TableHeader extends React.Component {
   }
 
   handleButtonClick() {
-    this.props.onButtonClick();
+    this.props.onToggleModal();
   }
 
   createAddButton() {

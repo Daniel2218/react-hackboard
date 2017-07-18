@@ -21,7 +21,9 @@ class Modal extends React.Component {
 
   render() {
     const tableHeaders = this.props.tableHeaders;
+    const toggleModal = this.props.onToggleModal;
     var headers = [];
+
     for(var i = 0; i < tableHeaders.length; i++) {
       headers.push(
         <div>
@@ -37,14 +39,11 @@ class Modal extends React.Component {
         <div id ="pop-up-box" tabIndex="1" onKeyDown={this.handleKeyPress}>
             <div id="top">
                 <p id="makeInline"> Add a new {this.props.buttonName}</p>
-                <i onClick={this.props.toggleModal} id="floatRight" className="fa fa-times fa-lg" aria-hidden="true"></i>
+                <i onClick={toggleModal} id="floatRight" className="fa fa-times fa-lg" aria-hidden="true"></i>
             </div>
             <div id="middle">
               <div>
-                {
-                  headers
-
-               }
+                { headers }
               </div>
             </div>
             <div id="bottom">
@@ -52,11 +51,11 @@ class Modal extends React.Component {
                     <a className="pop-up-a" id="add-event-btn" onClick={this.addEvent} href="#">
                         Add {this.props.buttonName}
                     </a>
-                    <a className="pop-up-a" id="cancel-btn" onClick={this.props.toggleModal} href="#"> Cancel </a>
+                    <a className="pop-up-a" id="cancel-btn" onClick={toggleModal} href="#"> Cancel </a>
                 </div>
             </div>
         </div>
-        <div id ="screen" onClick={this.props.toggleModal}></div>
+        <div id ="screen" onClick={toggleModal}></div>
       </div>
     );
   }

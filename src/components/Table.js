@@ -7,17 +7,9 @@ class Table extends React.Component {
   constructor(props){
     super(props);
 
-    this.toggleModal = this.toggleModal.bind(this);
     this.state = {
-      showModal: false,
       rows: this.getRows()
     };
-  }
-
-  toggleModal() {
-    this.setState((prevState) => ({
-      showModal: !prevState.showModal
-    }));
   }
 
   getTableHeaders() {
@@ -65,6 +57,7 @@ class Table extends React.Component {
 
   render() {
     const page = this.props.page;
+    const toggleModal = this.props.toggleModal;
     const listOfHeaders = this.getTableHeaders().map((header) =>
       <th>{header}</th>
     );
@@ -72,7 +65,7 @@ class Table extends React.Component {
     return (
       <div>
         <TableHeader page={page}
-                     onButtonClick={this.toggleModal} />
+                     onToggleModal={toggleModal} />
         <table>
           <tbody>
             <tr>{listOfHeaders}</tr>
@@ -86,7 +79,7 @@ class Table extends React.Component {
             </tr>
           </tbody>
         </table>
-        {this.state.showModal && <Modal tableHeaders={this.getTableHeaders()} toggleModal={this.toggleModal}/>}
+        {this.props.show && <Modal tableHeaders={this.getTableHeaders()} onToggleModal={toggleModal}/>}
       </div>
     );
   }

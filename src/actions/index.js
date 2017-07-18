@@ -4,3 +4,9 @@ export const pageChange = (page) => {
     page: page
   }
 }
+
+export const toggleModal = () => {
+  return {
+    type: "TOGGLE_MODAL"
+  }
+}

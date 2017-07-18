@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import PageSection from "./PageSection.js";
 import Stat from "./Stat.js";
-import Table from "./Table.js";
+import TableContainer from "../containers/TableContainer.js";
 
 class Page extends React.Component {
   constructor(props) {
@@ -16,14 +16,14 @@ class Page extends React.Component {
     if(page === "Applications") {
       pageSection = <PageSection page={page}>
                 <Stat />
-                <Table page={page} />
+                <TableContainer />
               </PageSection>;
     } else if (page === "Schedule") {
       pageSection = <PageSection page={page}>
               </PageSection>;
     } else {
       pageSection = <PageSection page={page}>
-                <Table page={page} />
+                <TableContainer />
               </PageSection>;
     }
     return pageSection;

@@ -8,7 +8,7 @@ const AppContainer = connect(
 )(App);
 
 function mapStateToProps(state) {
-  return {page: state.pageReducer.page};
+  return state.pageReducer;
 }
 
 function mapDispatchToProps(dispatch){
