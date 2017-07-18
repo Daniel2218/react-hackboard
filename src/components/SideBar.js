@@ -8,14 +8,17 @@ class SideBar extends React.Component {
     }
 
     render() {
+      const page = this.props.page;
+      const onPageChange = this.props.onPageChange;
+
       return (
         <div id = "nav">
           <ul>
-            <Link currentPage={this.props.currentPage} onPageChange={this.props.onPageChange} iconName="fa fa-files-o" value="Applications"> </Link>
-            <Link currentPage={this.props.currentPage} onPageChange={this.props.onPageChange} iconName="fa fa-gift" value="Prizes"> </Link>
-            <Link currentPage={this.props.currentPage} onPageChange={this.props.onPageChange} iconName="fa fa-calendar" value="Schedule"> </Link>
-            <Link currentPage={this.props.currentPage} onPageChange={this.props.onPageChange} iconName="fa fa-university" value="Sponsors"> </Link>
-            <Link currentPage={this.props.currentPage} onPageChange={this.props.onPageChange} iconName="fa fa-users" value="Users"> </Link>
+            <Link page={page} onPageChange={onPageChange} iconName="fa fa-files-o" value="Applications"> </Link>
+            <Link page={page} onPageChange={onPageChange} iconName="fa fa-gift" value="Prizes"> </Link>
+            <Link page={page} onPageChange={onPageChange} iconName="fa fa-calendar" value="Schedule"> </Link>
+            <Link page={page} onPageChange={onPageChange} iconName="fa fa-university" value="Sponsors"> </Link>
+            <Link page={page} onPageChange={onPageChange} iconName="fa fa-users" value="Users"> </Link>
           </ul>
         </div>
       );

@@ -14,7 +14,8 @@ class Link extends React.Component {
   render() {
     const extraIcon = this.props.extraIcon === undefined ? false : this.props.extraIcon;
     const className = this.props.className;
-    var id = this.props.currentPage === this.props.value ? "makeVisted" : ""
+    const page = this.props.page;
+    var id = page === this.props.value ? "makeVisted" : ""
 
     return (
       <li id={id} onClick={this.handleClick} className={className}>

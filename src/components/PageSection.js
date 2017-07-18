@@ -6,12 +6,12 @@ class PageSection extends React.Component {
   constructor(props) {
     super(props);
   }
-  
+
   render() {
     return (
       <div className="tableSection">
         <div id="title">
-            <h1> {this.props.currentPage} </h1>
+            <h1> {this.props.page} </h1>
         </div>
         <hr></hr>
         {this.props.children}

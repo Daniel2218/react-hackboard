@@ -12,6 +12,8 @@ class NavBar extends React.Component {
   }
 
   render() {
+    const page = this.props.page;
+
     return (
       <ul id = "header">
         <div id="top-half">
@@ -26,7 +28,7 @@ class NavBar extends React.Component {
         <Messages />
         <HeaderLink className="dropbtn" iconName="fa fa-cog" value="Settings" />
         <HeaderLink className="dropbtn" iconName="fa fa-level-up" value="Logout" />
-        <PathHeader currentPage={this.props.currentPage}/>
+        <PathHeader page={page}/>
       </ul>
     );
   }

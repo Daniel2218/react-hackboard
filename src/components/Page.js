@@ -10,25 +10,23 @@ class Page extends React.Component {
   }
 
   render() {
-    const currentPage = this.props.currentPage;
-    var page = "";
+    const page = this.props.page;
+    var pageSection = "";
 
-    if(currentPage === "Applications") {
-      page = <PageSection currentPage={this.props.currentPage}>
+    if(page === "Applications") {
+      pageSection = <PageSection page={page}>
                 <Stat />
-                <Table currentPage={this.props.currentPage}
-                       onButtonClick={this.toggleModal} />
+                <Table page={page} />
               </PageSection>;
-    } else if (currentPage === "Schedule") {
-      page = <PageSection currentPage={this.props.currentPage}>
+    } else if (page === "Schedule") {
+      pageSection = <PageSection page={page}>
               </PageSection>;
     } else {
-      page = <PageSection currentPage={this.props.currentPage}>
-                <Table currentPage={this.props.currentPage}
-                       onButtonClick={this.toggleModal} />
+      pageSection = <PageSection page={page}>
+                <Table page={page} />
               </PageSection>;
     }
-    return page;
+    return pageSection;
   }
 }
 

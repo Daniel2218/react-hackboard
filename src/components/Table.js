@@ -21,16 +21,16 @@ class Table extends React.Component {
   }
 
   getTableHeaders() {
-    var currentPage = this.props.currentPage;
+    var page = this.props.page;
     var th = [];
 
-    if(currentPage === "Applications") {
+    if(page === "Applications") {
       th = ["Applicant ID","First Name","Last Name","Hacks","Status"];
-    } else if (currentPage === "Prizes") {
+    } else if (page === "Prizes") {
       th = ["Name","Description","Obtained By","Donated By"];
-    } else if (currentPage === "Sponsors") {
+    } else if (page === "Sponsors") {
       th = ["Name","Email","Phone","Donation Amount","Donation Recieved"];
-    } else if (currentPage === "Users") {
+    } else if (page === "Users") {
       th = ["Name","Email","Phone","Postion"];
     }
     return th;
@@ -64,14 +64,14 @@ class Table extends React.Component {
   }
 
   render() {
-    const currentPage = this.props.currentPage;
+    const page = this.props.page;
     const listOfHeaders = this.getTableHeaders().map((header) =>
       <th>{header}</th>
     );
 
     return (
       <div>
-        <TableHeader currentPage={this.props.currentPage}
+        <TableHeader page={page}
                      onButtonClick={this.toggleModal} />
         <table>
           <tbody>

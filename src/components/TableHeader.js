@@ -12,9 +12,9 @@ class TableHeader extends React.Component {
   }
 
   createAddButton() {
-    var currentPage = this.props.currentPage;
-    var buttonName = currentPage.substring(0, currentPage.length - 1);
-    var buttonStyle = currentPage.length > 6 ? {width: "125px"} : {};
+    var page = this.props.page;
+    var buttonName = page.substring(0, page.length - 1);
+    var buttonStyle = page.length > 6 ? {width: "125px"} : {};
 
     return {
         name: "Add new " + buttonName,
@@ -24,19 +24,18 @@ class TableHeader extends React.Component {
     };
   }
 
-  getButtons(currentPage) {
+  getButtons(page) {
     var buttons = [];
 
-    if (currentPage === "Prizes" || currentPage === "Sponsors" || currentPage === "Users") {
+    if (page === "Prizes" || page === "Sponsors" || page === "Users") {
         buttons.push(this.createAddButton());
     }
     return buttons;
   }
 
   render() {
-    const currentPage = this.props.currentPage;
-    // console.log(this.getButtons(currentPage).forEach());
-    const listOfButtons = this.getButtons(currentPage).map((buttonInfo) =>
+    const page = this.props.page;
+    const listOfButtons = this.getButtons(page).map((buttonInfo) =>
       <button onClick={buttonInfo.handleClick} style={buttonInfo.style}>
             <i className={buttonInfo.iconName} aria-hidden='true'></i>
             {buttonInfo.name}
@@ -46,7 +45,7 @@ class TableHeader extends React.Component {
     return (
       <div id="tableHeader">
         <span> <i className="fa fa-th" aria-hidden="true"></i></span>
-        <h5> {currentPage} </h5>
+        <h5> {page} </h5>
         {listOfButtons}
       </div>
     );
