@@ -13,7 +13,7 @@ class Modal extends React.Component {
 
     if(event.key === 'Escape'){
       console.log("toggle");
-      this.props.toggleModal(); // does not seemed to work when autoFocus in input
+      this.props.onToggleModal(); // does not seemed to work when autoFocus in input
     } else if(event.key === "Enter") {
 
     }
