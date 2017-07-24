@@ -6,10 +6,6 @@ import Modal from "./Modal.js";
 class Table extends React.Component {
   constructor(props){
     super(props);
-
-    this.state = {
-      rows: this.getRows()
-    };
   }
 
   getTableHeaders() {
@@ -28,19 +24,10 @@ class Table extends React.Component {
     return th;
   }
 
-  getData() {
-    return [{
-      firstName: "Daniel",
-      lastName: "Lucia",
-      email: "14dvl@queensu.ca",
-      phone: "416-616-6498"
-    }];
-  }
-
   getRows() {
-    return this.getData().map((row) =>
-      <tr className="tr-color">{this.getFormattedRow(row)}</tr>
-    );
+    // return this.props.rows.map((row) =>
+    //   <tr className="tr-color">{this.getFormattedRow(row)}</tr>
+    // );
   }
 
   getFormattedRow(row) {
@@ -52,12 +39,14 @@ class Table extends React.Component {
   }
 
   addRow(rowInfo) {
-    this.state.rows.push(<tr className="tr-color">{this.getFormattedRow(rowInfo)}</tr>);
+    this.props.addRow(rowInfo);
   }
 
   render() {
+    console.log("Over here");
+    console.dir(this.props);
     const page = this.props.page;
-    const toggleModal = this.props.toggleModal;
+    const toggleModal = this.props.onToggleModal;
     const listOfHeaders = this.getTableHeaders().map((header) =>
       <th>{header}</th>
     );
@@ -69,17 +58,10 @@ class Table extends React.Component {
         <table>
           <tbody>
             <tr>{listOfHeaders}</tr>
-            {/* {this.state.rows} */}
-            <tr className="tr-color">
-                <td>Daniel</td>
-                <td>Lucia</td>
-                <td>14dvl@queensu.ca</td>
-                <td>Lucia</td>
-                <td>14dvl@queensu.ca</td>
-            </tr>
+            {this.getRows()}
           </tbody>
         </table>
-        {this.props.show && <Modal tableHeaders={this.getTableHeaders()} onToggleModal={toggleModal}/>}
+        {this.props.modalShow && <Modal tableHeaders={this.getTableHeaders()} onToggleModal={toggleModal}/>}
       </div>
     );
   }

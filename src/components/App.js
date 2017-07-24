@@ -13,6 +13,8 @@ class App extends Component {
   }
 
   render() {
+    console.log("App");
+    console.dir(this.props);
     const page = this.props.page;
 
     return (
