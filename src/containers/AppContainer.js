@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { pageChange } from "../actions";
+import { pageChange, sideBarClicked } from "../actions";
 import App from "../components/App.js";
 
 const AppContainer = connect(
@@ -14,7 +14,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch){
   return {
     onPageChange: page => {
-      dispatch(pageChange(page));
+      dispatch(sideBarClicked(page));
     }
   }
 }

@@ -25,15 +25,18 @@ class Table extends React.Component {
   }
 
   getRows() {
-    // return this.props.rows.map((row) =>
-    //   <tr className="tr-color">{this.getFormattedRow(row)}</tr>
-    // );
+    return this.props.table.rows.map((row) =>
+      <tr className="tr-color">{this.getFormattedRow(row)}</tr>
+    );
   }
 
   getFormattedRow(row) {
     var formatedRow = [];
+
     for (var key in row) {
+      if(row.hasOwnProperty(key)) {
         formatedRow.push(<td>{row[key]}</td>);
+      }
     }
     return formatedRow;
   }
@@ -42,15 +45,17 @@ class Table extends React.Component {
     this.props.addRow(rowInfo);
   }
 
+  componentDidMount() {
+    this.props.onFetchRows("Applications");
+  }
+
   render() {
-    console.log("Over here");
-    console.dir(this.props);
     const page = this.props.page;
     const toggleModal = this.props.onToggleModal;
     const listOfHeaders = this.getTableHeaders().map((header) =>
       <th>{header}</th>
     );
-
+  
     return (
       <div>
         <TableHeader page={page}

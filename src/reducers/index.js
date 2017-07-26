@@ -1,5 +1,4 @@
 import { combineReducers } from "redux";
-import { CHANGE_PAGE, TOGGLE_MODAL, ADD_ROW, REQUEST_ROWS, RECIEVE_ROWS} from "../actions/actionTypes.js";
 
 // reduces boilerplate
 function createReducer(initialState, handlers) {
@@ -21,15 +20,37 @@ function setModalState(modalState, action) {
   return !modalState;
 }
 
+function setIsFetching(tableState, action) {
+  return Object.assign({}, tableState, { isFetching: true });
+}
+
+function setRows(tableState, action) {
+  return Object.assign({}, tableState, {
+    isFetching: false,
+    rows: action.rows,
+    lastUpdated: action.recievedAt
+   });
+}
+
 // Slice Reducers: Handles for an entire slice of state
-const pageReducer = createReducer("Applications", { CHANGE_PAGE: setPage });
+const pageReducer  = createReducer("Applications", { CHANGE_PAGE: setPage });
 const modalReducer = createReducer(false, { TOGGLE_MODAL: setModalState });
-const tableReducer = createReducer([], { });
+const tableReducer = createReducer(
+  {
+    isFetching: false,
+    rows:[]
+  },
+  {
+    REQUEST_ROWS: setIsFetching,
+    RECIEVE_ROWS: setRows
+  }
+);
 
 // Root Reducer
-const appReducer = combineReducers({
+const rootReducer = combineReducers({
   page: pageReducer,
-  modalShow: modalReducer
+  modalShow: modalReducer,
+  table: tableReducer
 });
 
-export default appReducer;
+export default rootReducer;
