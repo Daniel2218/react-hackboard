@@ -50,8 +50,6 @@ class Table extends React.Component {
   }
 
   render() {
-    console.log("table");
-    console.dir(this.props);
     const page = this.props.page;
     const toggleModal = this.props.onToggleModal;
     const emptyInputs = this.props.modal.emptyInputs;
