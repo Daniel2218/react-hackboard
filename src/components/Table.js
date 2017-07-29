@@ -6,6 +6,7 @@ import Modal from "./Modal.js";
 class Table extends React.Component {
   constructor(props){
     super(props);
+    this.addRow = this.addRow.bind(this);
   }
 
   getTableHeaders() {
@@ -45,12 +46,15 @@ class Table extends React.Component {
   }
 
   addRow(rowInfo) {
-    this.props.addRow(rowInfo);
+    this.props.onAddRow(this.props.page, rowInfo);
   }
 
   render() {
+    console.log("table");
+    console.dir(this.props);
     const page = this.props.page;
     const toggleModal = this.props.onToggleModal;
+    const emptyInputs = this.props.modal.emptyInputs;
     const listOfHeaders = this.getTableHeaders().map((header) =>
       <th>{header}</th>
     );
@@ -65,7 +69,10 @@ class Table extends React.Component {
             {this.getRows()}
           </tbody>
         </table>
-        {this.props.modalShow && <Modal tableHeaders={this.getTableHeaders()} onToggleModal={toggleModal}/>}
+        {this.props.modal.show && <Modal tableHeaders={this.getTableHeaders()}
+                                         onToggleModal={toggleModal}
+                                         onAddRow={this.addRow}
+                                         emptyInputs = {emptyInputs} />}
       </div>
     );
   }

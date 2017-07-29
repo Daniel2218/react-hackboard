@@ -1,4 +1,10 @@
-import { CHANGE_PAGE, TOGGLE_MODAL, ADD_ROW, REQUEST_ROWS, RECIEVE_ROWS, RECIEVE_ALL_ROWS, REQUEST_ALL_ROWS } from "./actionTypes.js";
+import {
+    CHANGE_PAGE, TOGGLE_MODAL, ADD_ROW, REQUEST_ROWS, RECIEVE_ROWS, RECIEVE_ALL_ROWS, REQUEST_ALL_ROWS, VALIDATE_ROW
+} from "./actionTypes.js";
+
+const isRowValid = validRowAction => {
+  return validRowAction.emptyInputs.length === 0;
+}
 
 export const sideBarClicked = (page) => {
   return {
@@ -7,17 +13,46 @@ export const sideBarClicked = (page) => {
   }
 }
 
-export const toggleModal = (show) => {
+export const toggleModal = () => {
+  return { type: TOGGLE_MODAL };
+}
+
+export const validRow = (row) => {
+  var emptyInputs = Object.keys(row).filter((key, index) => {
+    if(row.hasOwnProperty(key) && row[key] === "") {
+        return key;
+    }
+  });
+
   return {
-    type: TOGGLE_MODAL
+    type: VALIDATE_ROW,
+    emptyInputs: emptyInputs
   };
 }
 
-export const addRow = (row) => {
-  return {
-    type: ADD_ROW,
-    row: row
-  };
+const addRow = (table, row) => {
+  return dispatch => {
+    dispatch(toggleModal());
+
+    return dispatch({
+      type: ADD_ROW,
+      table: table,
+      row: row,
+      recievedAt: Date.now()
+    });
+  }
+}
+
+export const addRowIfValid = (table, row) => {
+  return (dispatch) => {
+    var rowValid = validRow(row);
+
+    if (isRowValid(rowValid)) {
+      return dispatch(addRow(table, row));
+    } else {
+      return dispatch(rowValid);
+    }
+  }
 }
 
 export const requestRows = (table) => {
@@ -139,24 +174,3 @@ export default function fetchAllTableRows() {
     return dispatch(recieveAllRows(json));
   }
 }
-//
-// function shouldFetchRows(state, table) {
-//   const posts = state.postsBySubreddit[subreddit];
-//   if (!posts) {
-//     return true;
-//   } else if (posts.isFetching) {
-//     return false;
-//   } else {
-//     return posts.didInvalidate;
-//   }
-// }
-
-// export function fetchPostsIfNeeded(subreddit) {
-//   return (dispatch, getState) => {
-//     if (shouldFetchPosts(getState(), subreddit)) {
-//       return dispatch(fetchPosts(subreddit));
-//     } else {
-//       return Promise.resolve();
-//     }
-//   }
-// }

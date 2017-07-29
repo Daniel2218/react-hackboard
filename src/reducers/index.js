@@ -25,7 +25,7 @@ function setPage(pageState, action) {
 }
 
 function setModalState(modalState, action) {
-  return !modalState;
+  return Object.assign({}, modalState, { show: !modalState.show });
 }
 
 function setIsFetching(tableState, action) {
@@ -52,17 +52,47 @@ function setRows(tableState, action) {
 function setAllTableRows(tableState, action) {
   return Object.assign({}, tableState, action.tableRows, { isFetchingAll: false });
 }
+
+function addRow(tableState, action) {
+  var obj = {};
+  var rows = [...tableState[action.table].rows];
+
+  rows.push(action.row);
+  obj[action.table] = {
+    isFetching: false,
+    rows: rows,
+    lastUpdated: action.recievedAt
+  };
+
+  var newState = Object.assign({}, tableState[action.table], obj);
+  return Object.assign({}, tableState, newState);
+}
+
+function validateRow(modalState, action) {
+  return Object.assign({}, modalState, { emptyInputs: action.emptyInputs });
+}
 // End of Case Reducers
 
 // Slice Reducers: Handles for an entire slice of state
 const pageReducer  = createReducer("Applications", { CHANGE_PAGE: setPage });
-const modalReducer = createReducer(false, { TOGGLE_MODAL: setModalState });
+const modalReducer = createReducer(
+  {
+    show: false,
+    emptyInputs: []
+  },
+  {
+    TOGGLE_MODAL: setModalState,
+    VALIDATE_ROW: validateRow
+  }
+);
+
 const tableTreeReducer = createReducer({},
   {
     REQUEST_ROWS: setIsFetching,
     RECIEVE_ROWS: setRows,
     REQUEST_ALL_ROWS: setIsFetchingAll,
-    RECIEVE_ALL_ROWS: setAllTableRows
+    RECIEVE_ALL_ROWS: setAllTableRows,
+    ADD_ROW: addRow
   }
 );
 // End of Slice Reducers
@@ -70,7 +100,7 @@ const tableTreeReducer = createReducer({},
 // Root Reducer
 const rootReducer = combineReducers({
   page: pageReducer,
-  modalShow: modalReducer,
+  modal: modalReducer,
   table: tableTreeReducer
 });
 // End of Root Reducer

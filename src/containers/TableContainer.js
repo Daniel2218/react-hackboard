@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { toggleModal, addRow, fetchRows } from "../actions";
+import { toggleModal, addRowIfValid, validRow, fetchRows } from "../actions";
 import Table from "../components/Table.js";
 
 const TableContainer = connect(
@@ -16,8 +16,8 @@ function mapDispatchToProps(dispatch){
     onToggleModal: () => {
       dispatch(toggleModal());
     },
-    addRow: row => {
-      dispatch(addRow(row));
+    onAddRow: (table, row) => {
+      dispatch(addRowIfValid(table, row));
     },
     onFetchRows: (table) => {
       dispatch(fetchRows(table));
