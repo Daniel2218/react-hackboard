@@ -7,6 +7,8 @@ class Table extends React.Component {
   constructor(props){
     super(props);
     this.addRow = this.addRow.bind(this);
+    this.clearClickRow = this.clearClickRow.bind(this);
+    this.clickedRow = {};
   }
 
   getTableHeaders() {
@@ -25,12 +27,31 @@ class Table extends React.Component {
     return th;
   }
 
+  getClickedRow = (row) => {
+    if(this.props.page !== "Applications") {
+      var rowVals = Object.keys(row).map(key => {
+        return row[key];
+      });
+
+      this.clickedRow = rowVals;
+      this.props.onToggleModal();
+    }
+  }
+
+  clearClickRow = () => {
+    this.clickedRow = {};
+  }
+
   getRows() {
     const page = this.props.page;
+    const toggleModal = this.props.onToggleModal;
     const rows = this.props.table[page].rows === undefined ? [] : this.props.table[page].rows;
 
     return rows.map((row) =>
-      <tr className="tr-color">{this.getFormattedRow(row)}</tr>
+      <tr className="tr-color"
+          onClick={this.getClickedRow.bind(this, row)}>
+        {this.getFormattedRow(row)}
+      </tr>
     );
   }
 
@@ -70,7 +91,10 @@ class Table extends React.Component {
         {this.props.modal.show && <Modal tableHeaders={this.getTableHeaders()}
                                          onToggleModal={toggleModal}
                                          onAddRow={this.addRow}
-                                         emptyInputs = {emptyInputs} />}
+                                         emptyInputs={emptyInputs}
+                                         clickedRow={this.clickedRow}
+                                         page={page}
+                                         clearInputFields={this.clearClickRow}/>}
       </div>
     );
   }

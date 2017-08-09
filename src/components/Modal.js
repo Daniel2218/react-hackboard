@@ -7,6 +7,8 @@ class Modal extends React.Component {
   constructor(props) {
     super(props);
     this.handleAddRow = this.handleAddRow.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.getRowFromModal = this.getRowFromModal.bind(this);
   }
 
   getRowFromModal() {
@@ -17,7 +19,8 @@ class Modal extends React.Component {
         obj[key] = this.refs[key].value;
       }
     }
-
+    console.log("obj");
+    console.dir(obj);
     return obj;
   }
 
@@ -27,37 +30,52 @@ class Modal extends React.Component {
 
   handleKeyPress = (event) => {
     console.log(event.key);
-    this.row = this.getRowFromModal();
 
     if(event.key === 'Escape'){
       console.log("toggle");
-      this.props.onToggleModal(); // does not seemed to work when autoFocus in input
+      this.props.clearInputFields();
+      this.closeModal(); // does not seemed to work when autoFocus in input
     } else if(event.key === "Enter") {
       this.handleAddRow();
+      this.closeModal();
     }
   }
 
   handleAddRow() {
-    this.props.onAddRow(this.row);
+    this.props.onAddRow(this.getRowFromModal());
+  }
+
+  closeModal() {
+    this.props.clearInputFields();
+    this.props.onToggleModal();
   }
 
   render() {
+    console.log("rerender");
+    console.dir(this.props);
     const tableHeaders = this.props.tableHeaders;
-    const toggleModal = this.props.onToggleModal;
-    const emptyInputs = this.props.emptyInputs;
+    const emptyInputs  = this.props.emptyInputs;
+    const clickedRow   = this.props.clickedRow;
+
+    var page = this.props.page;
     var headers = [];
     var th = "";
     var classes = "pop-up-input";
+    var clickedRowVal = "";
+    var buttonText = (Object.keys(clickedRow).length === 0 ? "Add " : "Edit ") + page;
 
+    page = page.substring(0, page.length - 1);
+``
     for(var i = 0; i < tableHeaders.length; i++) {
       th = tableHeaders[i];
       classes += emptyInputs.indexOf(th) !== -1 ? " redBorder" : "";
+      clickedRowVal = clickedRow[i] === undefined ? "" : clickedRow[i];
 
       headers.push(
         <div>
-          <p> Enter {tableHeaders[i]}: </p>
-          {i === 0 && <input ref={th} name={th} onKeyDown={this.handleKeyPress} className={classes} type='text' autoFocus />}
-          {i > 0   && <input ref={th} name={th} onKeyDown={this.handleKeyPress} className={classes} type='text' />}
+          <p> Enter {th}: </p>
+           <input defaultValue={clickedRowVal} ref={th} name={th} onKeyDown={this.handleKeyPress}
+                  className={classes} type='text' autoFocus={i === 0} />
         </div>
       );
     }
@@ -66,8 +84,8 @@ class Modal extends React.Component {
       <div>
         <div id ="pop-up-box" tabIndex="1" onKeyDown={this.handleKeyPress}>
             <div id="top">
-                <p id="makeInline"> Add a new {this.props.buttonName}</p>
-                <i onClick={toggleModal} id="floatRight" className="fa fa-times fa-lg" aria-hidden="true"></i>
+                <p id="makeInline"> Add a new {page}</p>
+                <i onClick={this.closeModal} id="floatRight" className="fa fa-times fa-lg" aria-hidden="true"></i>
             </div>
             <div id="middle">
               <div>
@@ -77,13 +95,13 @@ class Modal extends React.Component {
             <div id="bottom">
                 <div id="positionLeft">
                     <a className="pop-up-a" id="add-event-btn" onClick={this.handleAddRow} href="#">
-                        Add {this.props.buttonName}
+                        {buttonText}
                     </a>
-                    <a className="pop-up-a" id="cancel-btn" onClick={toggleModal} href="#"> Cancel </a>
+                    <a className="pop-up-a" id="cancel-btn" onClick={this.closeModal} href="#"> Cancel </a>
                 </div>
             </div>
         </div>
-        <div id ="screen" onClick={toggleModal}></div>
+        <div id ="screen" onClick={this.closeModal}></div>
       </div>
     );
   }

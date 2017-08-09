@@ -18,12 +18,15 @@ export const toggleModal = () => {
 }
 
 export const validRow = (row) => {
+  console.log("After");
+  console.dir(row);
   var emptyInputs = Object.keys(row).filter((key, index) => {
     if(row.hasOwnProperty(key) && row[key] === "") {
         return key;
     }
   });
-
+  console.log("emptyInputs");
+  console.dir(emptyInputs);
   return {
     type: VALIDATE_ROW,
     emptyInputs: emptyInputs
@@ -48,6 +51,7 @@ export const addRowIfValid = (table, row) => {
     var rowValid = validRow(row);
 
     if (isRowValid(rowValid)) {
+      dispatch(rowValid);
       return dispatch(addRow(table, row));
     } else {
       return dispatch(rowValid);
