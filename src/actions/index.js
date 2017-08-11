@@ -1,5 +1,6 @@
 import {
-    CHANGE_PAGE, TOGGLE_MODAL, ADD_ROW, REQUEST_ROWS, RECIEVE_ROWS, RECIEVE_ALL_ROWS, REQUEST_ALL_ROWS, VALIDATE_ROW
+    CHANGE_PAGE, TOGGLE_MODAL, ADD_ROW, REQUEST_ROWS, RECIEVE_ROWS,
+    RECIEVE_ALL_ROWS, REQUEST_ALL_ROWS, VALIDATE_ROW, EDIT_ROW
 } from "./actionTypes.js";
 
 const isRowValid = validRowAction => {
@@ -18,15 +19,12 @@ export const toggleModal = () => {
 }
 
 export const validRow = (row) => {
-  console.log("After");
-  console.dir(row);
   var emptyInputs = Object.keys(row).filter((key, index) => {
     if(row.hasOwnProperty(key) && row[key] === "") {
         return key;
     }
   });
-  console.log("emptyInputs");
-  console.dir(emptyInputs);
+
   return {
     type: VALIDATE_ROW,
     emptyInputs: emptyInputs
@@ -46,6 +44,19 @@ const addRow = (table, row) => {
   }
 }
 
+const editRow = (table, row) => {
+  return dispatch => {
+    dispatch(toggleModal());
+
+    return dispatch({
+      type: EDIT_ROW,
+      table: table,
+      row: row,
+      updatedAt: Date.now()
+    });
+  }
+}
+
 export const addRowIfValid = (table, row) => {
   return (dispatch) => {
     var rowValid = validRow(row);
@@ -53,6 +64,19 @@ export const addRowIfValid = (table, row) => {
     if (isRowValid(rowValid)) {
       dispatch(rowValid);
       return dispatch(addRow(table, row));
+    } else {
+      return dispatch(rowValid);
+    }
+  }
+}
+
+export const editRowIfValid = (table, row) => {
+  return (dispatch) => {
+    var rowValid = validRow(row);
+
+    if (isRowValid(rowValid)) {
+      dispatch(rowValid);
+      return dispatch(editRow(table, row));
     } else {
       return dispatch(rowValid);
     }
@@ -91,7 +115,7 @@ export function fetchRows(table) {
     switch (table) {
       case "Applications":
         json.push({
-          applicantID:"1",
+          id:"1",
           firstName: "Daniel",
           lastName: "Lucia",
           hacks: "14",
@@ -100,6 +124,7 @@ export function fetchRows(table) {
         break;
       case "Sponsors":
         json.push({
+          id: "1",
           name: "Daniel Lucia",
           email: "14dvl@queensu.ca",
           phone: "4166166498",
@@ -109,6 +134,7 @@ export function fetchRows(table) {
         break;
       case "Prizes":
         json.push({
+          id: "1",
           name: "Daniel Lucia",
           description: "Cool Prize",
           obtainedBy: "Winning",
@@ -117,6 +143,7 @@ export function fetchRows(table) {
         break;
       case "Users":
         json.push({
+          id: "1",
           name: "Daniel Lucia",
           email: "14dv;@queensu.ca",
           phone: "4166166498",
@@ -139,7 +166,7 @@ export default function fetchAllTableRows() {
 
     json["Applications"] = {
       rows: [{
-        applicantID:"1",
+        id:"1",
         firstName: "Daniel",
         lastName: "Lucia",
         hacks: "14",
@@ -149,6 +176,7 @@ export default function fetchAllTableRows() {
 
     json["Sponsors"] = {
       rows: [{
+        id: "1",
         name: "Daniel Lucia",
         email: "14dvl@queensu.ca",
         phone: "4166166498",
@@ -159,6 +187,7 @@ export default function fetchAllTableRows() {
 
     json["Prizes"] = {
       rows: [{
+        id: "1",
         name: "Daniel Lucia",
         description: "Cool Prize",
         obtainedBy: "Winning",
@@ -167,7 +196,8 @@ export default function fetchAllTableRows() {
     }
 
     json["Users"] = {
-      rows: [{
+      rows:[{
+        id: "1",
         name: "Daniel Lucia",
         email: "14dv@queensu.ca",
         phone: "4166166498",

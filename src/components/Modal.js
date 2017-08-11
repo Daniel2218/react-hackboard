@@ -6,6 +6,8 @@ import '../css/popUpBox.css';
 class Modal extends React.Component {
   constructor(props) {
     super(props);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.handleEditRow = this.handleEditRow.bind(this);
     this.handleAddRow = this.handleAddRow.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.getRowFromModal = this.getRowFromModal.bind(this);
@@ -28,6 +30,17 @@ class Modal extends React.Component {
     this.row = this.getRowFromModal();
   }
 
+  handleButtonClick(buttonText) {
+    if(buttonText.indexOf("Add") !== -1) {
+      this.handleAddRow();
+    } else if(buttonText.indexOf("Edit") !== -1) {
+      this.handleEditRow();
+    } else {
+      this.closeModal();
+    }
+  }
+
+  // calls approiate functions on key presses
   handleKeyPress = (event) => {
     console.log(event.key);
 
@@ -43,6 +56,10 @@ class Modal extends React.Component {
 
   handleAddRow() {
     this.props.onAddRow(this.getRowFromModal());
+  }
+
+  handleEditRow() {
+    this.props.onEditRow(this.getRowFromModal());
   }
 
   closeModal() {
@@ -68,6 +85,7 @@ class Modal extends React.Component {
 ``
     for(var i = 0; i < tableHeaders.length; i++) {
       th = tableHeaders[i];
+      console.log("table header" + th);
       classes += emptyInputs.indexOf(th) !== -1 ? " redBorder" : "";
       clickedRowVal = clickedRow[i] === undefined ? "" : clickedRow[i];
 
@@ -78,6 +96,8 @@ class Modal extends React.Component {
                   className={classes} type='text' autoFocus={i === 0} />
         </div>
       );
+
+      classes = "pop-up-input";
     }
 
     return (
@@ -94,7 +114,8 @@ class Modal extends React.Component {
             </div>
             <div id="bottom">
                 <div id="positionLeft">
-                    <a className="pop-up-a" id="add-event-btn" onClick={this.handleAddRow} href="#">
+                    <a className="pop-up-a" id="add-event-btn"
+                       onClick={() => { this.handleButtonClick(buttonText) }} href="#">
                         {buttonText}
                     </a>
                     <a className="pop-up-a" id="cancel-btn" onClick={this.closeModal} href="#"> Cancel </a>

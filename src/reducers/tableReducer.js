@@ -27,13 +27,33 @@ function setAllTableRows(tableState, action) {
 
 function addRow(tableState, action) {
   var obj = {};
-  var rows = [...tableState[action.table].rows];
+  var rows = [ ...tableState[action.table].rows ];
 
   rows.push(action.row);
   obj[action.table] = {
     isFetching: false,
     rows: rows,
     lastUpdated: action.recievedAt
+  };
+
+  var newState = Object.assign({}, tableState[action.table], obj);
+  return Object.assign({}, tableState, newState);
+}
+
+function editRow(tableState, action) {
+  var obj = {};
+  var rows = [ ...tableState[action.table].rows ];
+  var id = action.row[id];
+  var newRows = rows.map((row) => {
+    return row[id] === action.row[id] ? action.row : row;
+  });
+
+  console.log("newRows");
+  console.dir(newRows);
+
+  obj[action.table] = {
+    rows: newRows,
+    lastUpdated: action.updatedAt
   };
 
   var newState = Object.assign({}, tableState[action.table], obj);
@@ -58,7 +78,8 @@ const tableReducer = createReducer({},
     RECIEVE_ROWS: setRows,
     REQUEST_ALL_ROWS: setIsFetchingAll,
     RECIEVE_ALL_ROWS: setAllTableRows,
-    ADD_ROW: addRow
+    ADD_ROW: addRow,
+    EDIT_ROW: editRow
   }
 );
 // End of Slice Reducers

@@ -82,6 +82,7 @@ td {
     padding: 10px;
     text-decoration: none;
     color: #939da8;
+    vertical-align: middle;
 }
 hr {
     margin: 20px 0;
@@ -144,6 +145,19 @@ input {
     margin-right: 10px;
     margin-bottom: 10px;
 }
-.fa-trash, .fa-pencil-square-o {
+td > i {
+  opacity: 0;
+}
+.fa-trash {
+    position: absolute;
     cursor: pointer;
+    right: 30px;
+    margin-top: -4px;
+    color: red;
+    font-size: 20px !important;
+}
+.spanText {
+  vertical-align: middle;
+  color:blue;
+  margin-top: 2px;
 }
