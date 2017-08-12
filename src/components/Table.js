@@ -80,8 +80,9 @@ class Table extends React.Component {
           entry = (
             <td>
               {row[key]}
-              {page !== "Applications" && <i style={sel} className="fa fa-trash"
-                                             aria-hidden="true" onClick={this.deleteRow}></i>}
+              {page !== "Applications" && <i style={sel} className="fa fa-trash" aria-hidden="true"
+                                             onClick={(event) => {this.deleteRow(event, row.id)} }>
+                                         </i>}
             </td>
           );
         }
@@ -100,8 +101,9 @@ class Table extends React.Component {
     this.props.onEditRow(this.props.page, rowInfo);
   }
 
-  deleteRow(e,id) {
-    e.stopPropagation(); // stops getClickedRow from being called
+  deleteRow(event,id) {
+    // stops getClickedRow from being called
+    event.stopPropagation();
     this.props.onDeleteRow(this.props.page, id);
   }
 
@@ -114,6 +116,7 @@ class Table extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     const page = this.props.page;
     const toggleModal = this.props.onToggleModal;
     const emptyInputs = this.props.modal.emptyInputs;
@@ -136,6 +139,7 @@ class Table extends React.Component {
                                          onAddRow={this.addRow}
                                          onEditRow={this.editRow}
                                          emptyInputs={emptyInputs}
+                                         clearEmptyInputs={this.props.onClearEmptyInputs}
                                          clickedRow={this.clickedRow}
                                          page={page}
                                          clearInputFields={this.clearClickRow}/>}

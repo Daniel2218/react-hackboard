@@ -37,6 +37,7 @@ class Modal extends React.Component {
     } else {
       this.closeModal();
     }
+    this.props.clearInputFields();
   }
 
   // calls approiate functions on key presses
@@ -46,7 +47,8 @@ class Modal extends React.Component {
     if(event.key === 'Escape'){
       console.log("toggle");
       this.props.clearInputFields();
-      this.closeModal(); // does not seemed to work when autoFocus in input
+      // does not seemed to work when autoFocus in input
+      this.closeModal();
     } else if(event.key === "Enter") {
       this.handleAddRow();
       this.closeModal();
@@ -63,10 +65,12 @@ class Modal extends React.Component {
 
   closeModal() {
     this.props.clearInputFields();
+    this.props.clearEmptyInputs();
     this.props.onToggleModal();
   }
 
   render() {
+    console.dir(this.props);
     const tableHeaders = this.props.tableHeaders;
     const emptyInputs  = this.props.emptyInputs;
     const clickedRow   = this.props.clickedRow;

@@ -7,6 +7,18 @@ function setIsFetchingHelper(partialState, table) {
   obj[table] = Object.assign({}, partialState, { isFetching: true });
   return obj;
 }
+
+function createNewRows(tableState, action, newRows) {
+  var obj = {};
+
+  obj[action.table] = {
+    rows: newRows,
+    lastUpdated: action.updatedAt
+  };
+
+  var newState = Object.assign({}, tableState[action.table], obj);
+  return Object.assign({}, tableState, newState);
+}
 // End of Utility functions
 
 // Case Reducers: Handlers for specfic cases
@@ -26,51 +38,28 @@ function setAllTableRows(tableState, action) {
 }
 
 function addRow(tableState, action) {
-  var obj = {};
   var rows = [ ...tableState[action.table].rows ];
-
   rows.push(action.row);
-  obj[action.table] = {
-    isFetching: false,
-    rows: rows,
-    lastUpdated: action.recievedAt
-  };
-
-  var newState = Object.assign({}, tableState[action.table], obj);
-  return Object.assign({}, tableState, newState);
+  return createNewRows(tableState, action, rows);
 }
 
 function editRow(tableState, action) {
-  var obj = {};
   var rows = [ ...tableState[action.table].rows ];
   var id = action.row[id];
   var newRows = rows.map((row) => {
     return row[id] === action.row[id] ? action.row : row;
   });
 
-  obj[action.table] = {
-    rows: newRows,
-    lastUpdated: action.updatedAt
-  };
-
-  var newState = Object.assign({}, tableState[action.table], obj);
-  return Object.assign({}, tableState, newState);
+  return createNewRows(tableState, action, newRows);
 }
 
 function deleteRow(tableState, action) {
-  var obj = {};
   var rows = [ ...tableState[action.table].rows ];
   var newRows = rows.filter((row) => {
-    return row.id === action.id;
+    return row.id !== action.id;
   });
 
-  obj[action.table] = {
-    rows: newRows,
-    lastUpdated: action.updatedAt
-  };
-
-  var newState = Object.assign({}, tableState[action.table], obj);
-  return Object.assign({}, tableState, newState);
+  return createNewRows(tableState, action, newRows);
 }
 
 function setIsFetching(tableState, action) {

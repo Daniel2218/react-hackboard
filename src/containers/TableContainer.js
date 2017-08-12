@@ -23,8 +23,11 @@ function mapDispatchToProps(dispatch){
       dispatch(editRowIfValid(table, row))
     },
     onDeleteRow: (table, id) => {
-      console.log("IN table container");
       dispatch(deleteRow(table, id));
+    },
+    onClearEmptyInputs: () => {
+      console.log("hereerere");
+      dispatch(validRow({}));
     },
     onFetchRows: (table) => {
       dispatch(fetchRows(table));
