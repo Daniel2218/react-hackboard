@@ -133,7 +133,7 @@ a {
      text-decoration: none;
      color: #939da8;
 }
-img { width: 40px; margin-right: 4px !important;}
+.navStyleImg { width: 40px; margin-right: 4px !important;}
 #nav > ul > li:hover { color:white; }
 #nav > ul > li > div > i { margin-right: 10px; }
 #nav > ul > li:hover {

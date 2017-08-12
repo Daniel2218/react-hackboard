@@ -31,23 +31,6 @@ class Table extends React.Component {
     return th;
   }
 
-  getClickedRow = (row) => {
-    if(!this.state.deleteRow) {
-      if(this.props.page !== "Applications") {
-        var rowVals = Object.keys(row).map(key => {
-          return row[key];
-        });
-
-        this.clickedRow = rowVals;
-        this.props.onToggleModal();
-      }
-    }
-  }
-
-  clearClickRow = () => {
-    this.clickedRow = {};
-  }
-
   getRows() {
     const page = this.props.page;
     const toggleModal = this.props.onToggleModal;
@@ -93,6 +76,23 @@ class Table extends React.Component {
     return formatedRow;
   }
 
+  getClickedRow = (row) => {
+    if(!this.state.deleteRow) {
+      if(this.props.page !== "Applications") {
+        var rowVals = Object.keys(row).map(key => {
+          return row[key];
+        });
+
+        this.clickedRow = rowVals;
+        this.props.onToggleModal();
+      }
+    }
+  }
+
+  clearClickRow = () => {
+    this.clickedRow = {};
+  }
+
   addRow(rowInfo) {
     this.props.onAddRow(this.props.page, rowInfo);
   }
@@ -116,7 +116,6 @@ class Table extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     const page = this.props.page;
     const toggleModal = this.props.onToggleModal;
     const emptyInputs = this.props.modal.emptyInputs;

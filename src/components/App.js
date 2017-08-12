@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NavBar from "./NavBar.js";
 import SideBar from "./SideBar.js";
 import Page from "./Page.js";
+import Login from "./Login.js";
 
 import '../css/reset.css';
 import '../css/navStyle.css';
