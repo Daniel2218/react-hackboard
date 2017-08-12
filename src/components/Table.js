@@ -6,9 +6,10 @@ import Modal from "./Modal.js";
 class Table extends React.Component {
   constructor(props){
     super(props);
-    this.state = {};
+    this.state = { deleteRow: false };
     this.addRow = this.addRow.bind(this);
     this.editRow = this.editRow.bind(this);
+    this.deleteRow = this.deleteRow.bind(this);
     this.clearClickRow = this.clearClickRow.bind(this);
     this.mouseOut = this.mouseOut.bind(this);
     this.clickedRow = {};
@@ -31,13 +32,15 @@ class Table extends React.Component {
   }
 
   getClickedRow = (row) => {
-    if(this.props.page !== "Applications") {
-      var rowVals = Object.keys(row).map(key => {
-        return row[key];
-      });
+    if(!this.state.deleteRow) {
+      if(this.props.page !== "Applications") {
+        var rowVals = Object.keys(row).map(key => {
+          return row[key];
+        });
 
-      this.clickedRow = rowVals;
-      this.props.onToggleModal();
+        this.clickedRow = rowVals;
+        this.props.onToggleModal();
+      }
     }
   }
 
@@ -61,13 +64,13 @@ class Table extends React.Component {
   }
 
   getFormattedRow(row) {
-    var page = this.props.page;
     var formatedRow = [];
-    var len = Object.keys(row).length;
     var i = 0;
-    const icon = (<i onClick='' className="fa fa-trash" aria-hidden="true"></i>);
     var entry = "";
     var sel   = {};
+    const page = this.props.page;
+    const icon = (<i onClick='' className="fa fa-trash" aria-hidden="true"></i>);
+    const len = Object.keys(row).length;
 
     for (var key in row) {
       if(row.hasOwnProperty(key)) {
@@ -77,7 +80,8 @@ class Table extends React.Component {
           entry = (
             <td>
               {row[key]}
-              {page !== "Applications" &&<i style={sel}className="fa fa-trash" aria-hidden="true"></i>}
+              {page !== "Applications" && <i style={sel} className="fa fa-trash"
+                                             aria-hidden="true" onClick={this.deleteRow}></i>}
             </td>
           );
         }
@@ -96,13 +100,17 @@ class Table extends React.Component {
     this.props.onEditRow(this.props.page, rowInfo);
   }
 
+  deleteRow(e,id) {
+    e.stopPropagation(); // stops getClickedRow from being called
+    this.props.onDeleteRow(this.props.page, id);
+  }
+
   mouseOver(row) {
-    console.log(row.id);
-    this.setState({selectedRow: row.id});
+    this.setState(Object.assign({}, this.state, {selectedRow: row.id}));
   }
 
   mouseOut() {
-    this.setState({selectedRow: ""});
+    this.setState(Object.assign({}, this.state, {selectedRow: ""}));
   }
 
   render() {

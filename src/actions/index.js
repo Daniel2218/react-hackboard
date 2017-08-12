@@ -1,6 +1,6 @@
 import {
     CHANGE_PAGE, TOGGLE_MODAL, ADD_ROW, REQUEST_ROWS, RECIEVE_ROWS,
-    RECIEVE_ALL_ROWS, REQUEST_ALL_ROWS, VALIDATE_ROW, EDIT_ROW
+    RECIEVE_ALL_ROWS, REQUEST_ALL_ROWS, VALIDATE_ROW, EDIT_ROW, DELETE_ROW
 } from "./actionTypes.js";
 
 const isRowValid = validRowAction => {
@@ -52,6 +52,17 @@ const editRow = (table, row) => {
       type: EDIT_ROW,
       table: table,
       row: row,
+      updatedAt: Date.now()
+    });
+  }
+}
+
+export const deleteRow = (table, id) => {
+  return dispatch => {
+    return dispatch({
+      type: DELETE_ROW,
+      table: table,
+      id: id,
       updatedAt: Date.now()
     });
   }

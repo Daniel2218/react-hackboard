@@ -48,8 +48,21 @@ function editRow(tableState, action) {
     return row[id] === action.row[id] ? action.row : row;
   });
 
-  console.log("newRows");
-  console.dir(newRows);
+  obj[action.table] = {
+    rows: newRows,
+    lastUpdated: action.updatedAt
+  };
+
+  var newState = Object.assign({}, tableState[action.table], obj);
+  return Object.assign({}, tableState, newState);
+}
+
+function deleteRow(tableState, action) {
+  var obj = {};
+  var rows = [ ...tableState[action.table].rows ];
+  var newRows = rows.filter((row) => {
+    return row.id === action.id;
+  });
 
   obj[action.table] = {
     rows: newRows,
@@ -79,7 +92,8 @@ const tableReducer = createReducer({},
     REQUEST_ALL_ROWS: setIsFetchingAll,
     RECIEVE_ALL_ROWS: setAllTableRows,
     ADD_ROW: addRow,
-    EDIT_ROW: editRow
+    EDIT_ROW: editRow,
+    DELETE_ROW: deleteRow
   }
 );
 // End of Slice Reducers

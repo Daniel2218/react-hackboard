@@ -21,8 +21,7 @@ class Modal extends React.Component {
         obj[key] = this.refs[key].value;
       }
     }
-    console.log("obj");
-    console.dir(obj);
+
     return obj;
   }
 
@@ -68,8 +67,6 @@ class Modal extends React.Component {
   }
 
   render() {
-    console.log("rerender");
-    console.dir(this.props);
     const tableHeaders = this.props.tableHeaders;
     const emptyInputs  = this.props.emptyInputs;
     const clickedRow   = this.props.clickedRow;
@@ -85,7 +82,6 @@ class Modal extends React.Component {
 ``
     for(var i = 0; i < tableHeaders.length; i++) {
       th = tableHeaders[i];
-      console.log("table header" + th);
       classes += emptyInputs.indexOf(th) !== -1 ? " redBorder" : "";
       clickedRowVal = clickedRow[i] === undefined ? "" : clickedRow[i];
 
