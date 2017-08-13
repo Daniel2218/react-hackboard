@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styles from "../css/navStyle.css";
-import FontAwesome from 'react-fontawesome'
 
 class Link extends React.Component {
   constructor(props) {
@@ -17,7 +16,7 @@ class Link extends React.Component {
     const extraIcon = this.props.extraIcon === undefined ? false : this.props.extraIcon;
     const className = this.props.className;
     const page = this.props.page;
-    var id = page === this.props.value ? "makeVisted" : "";
+    var id = page === this.props.value ? styles.makeVisted : "";
 
     return (
       <li id={id} onClick={this.handleClick} className={className}>

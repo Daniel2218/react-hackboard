@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import TableHeader from "./TableHeader.js";
 
+import styles from "../css/application.css";
+
 class PageSection extends React.Component {
   constructor(props) {
     super(props);
@@ -9,8 +11,8 @@ class PageSection extends React.Component {
 
   render() {
     return (
-      <div className="tableSection">
-        <div id="title">
+      <div className={styles.tableSection}>
+        <div id={styles.title}>
             <h1> {this.props.page} </h1>
         </div>
         <hr></hr>

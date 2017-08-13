@@ -13,7 +13,7 @@ class PathHeader extends React.Component {
         <div id ={styles.pathHeader}>
           <div id={styles.spnGrey}>
             <i className="fa fa-home" id={styles.iSpace1} aria-hidden="true"></i> Home
-              <i className="fa fa-angle-right" id={styles.iSpace1} aria-hidden="true"></i>
+              <i className="fa fa-angle-right" id={styles.iSpace2} aria-hidden="true"></i>
               {this.props.page}
           </div>
         </div>

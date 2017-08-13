@@ -28,25 +28,25 @@ body {
     display: block;
     margin-bottom: 10px;
 }
-#stat-box-1 {
+#statBox1 {
     margin-right: 8px;
     background-color: #27a9e3;
     width: 25%;
     min-width: 120px;
 }
-#stat-box-2 {
+#statBox2 {
     margin-right: 8px;
     background-color: #28b779;
     width:15%;
     min-width: 120px;
 }
-#stat-box-3 {
+#statBox3 {
     margin-right: 8px;
     background-color: #f74d4d;
     width:15%;
     min-width: 120px;
 }
-#stat-box-4 {
+#statBox4 {
     margin-right: 8px;
     background-color: #2255a4;
     width:15%;
@@ -62,22 +62,22 @@ body {
     background-color: #eeeeee;
     padding-top: 30px;
 }
-table, th, td {
+#table, .th, .td {
     text-align: left;
     border: 1px solid #cdcdcd;
 }
-table, th {
+#table, .th {
     padding: 10px;
 }
-table {
+#table {
     width: calc(100% - 10px);
 }
-th {
+.th {
     font-size: 10px;
     font-weight: bold;
     text-align: center;
 }
-td {
+.td {
     font-size: 12px;
     padding: 10px;
     text-decoration: none;
@@ -91,8 +91,8 @@ hr {
     border-bottom: 1px solid #fff;
     border-top-color: #dadada;
 }
-tr:hover { background-color: #eeeeee; }
-.tr-color {
+.tr:hover { background-color: #eeeeee; }
+.trColor {
   background-color: #f9f9f9;
   cursor: pointer;
 }
@@ -145,10 +145,10 @@ input {
     margin-right: 10px;
     margin-bottom: 10px;
 }
-td > i {
+.td > i {
   opacity: 0;
 }
-.fa-trash {
+.trash {
     position: absolute;
     cursor: pointer;
     right: 30px;
@@ -160,4 +160,18 @@ td > i {
   vertical-align: middle;
   color:blue;
   margin-top: 2px;
+}
+/* Grow code*/
+.hvrGrow {
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvrGrow:hover, .hvrGrow:focus, .hvrGrow:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }

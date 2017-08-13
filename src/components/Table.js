@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import TableHeader from './TableHeader.js';
 import Modal from "./Modal.js";
 
+import styles from "../css/application.css";
+
 class Table extends React.Component {
   constructor(props){
     super(props);
@@ -54,7 +56,7 @@ class Table extends React.Component {
     const rows = this.props.table[page].rows === undefined ? [] : this.props.table[page].rows;
 
     return rows.map((row) =>
-      <tr className="tr-color"
+      <tr className={styles.trColor + " " + styles.tr}
           onClick={this.getClickedRow.bind(this, row)}
           onMouseOver={this.mouseOver.bind(this,row)}
           onMouseOut={this.mouseOut}>
@@ -69,18 +71,17 @@ class Table extends React.Component {
     var entry = "";
     var sel   = {};
     const page = this.props.page;
-    const icon = (<i onClick='' className="fa fa-trash" aria-hidden="true"></i>);
     const len = Object.keys(row).length;
 
     for (var key in row) {
       if(row.hasOwnProperty(key)) {
-        entry = (<td> {row[key]} </td>);
+        entry = (<td className={styles.td}> {row[key]} </td>);
         sel = row.id === this.state.selectedRow ? { opacity: "1" } : { opacity: "0" };
-        if(++i === len ){
+        if(++i === len){
           entry = (
-            <td>
+            <td className={styles.td}>
               {row[key]}
-              {page !== "Applications" && <i style={sel} className="fa fa-trash" aria-hidden="true"
+              {page !== "Applications" && <i style={sel} className={styles.trash + " fa fa-trash"} aria-hidden="true"
                                              onClick={(event) => {this.deleteRow(event, row.id)} }>
                                          </i>}
             </td>
@@ -116,21 +117,20 @@ class Table extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     const page = this.props.page;
     const toggleModal = this.props.onToggleModal;
     const emptyInputs = this.props.modal.emptyInputs;
     const listOfHeaders = this.getTableHeaders().map((header) =>
-      <th>{header}</th>
+      <th className={styles.th}>{header}</th>
     );
 
     return (
       <div>
         <TableHeader page={page}
                      onToggleModal={toggleModal} />
-        <table>
+        <table id={styles.table}>
           <tbody>
-            <tr>{listOfHeaders}</tr>
+            <tr className={styles.tr}>{listOfHeaders}</tr>
             {this.getRows()}
           </tbody>
         </table>
