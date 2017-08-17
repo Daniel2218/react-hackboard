@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
 import styles from "../css/popUpBox.css";
+// import styles from "../css/modal.scss";
 
 class Modal extends React.Component {
   constructor(props) {
