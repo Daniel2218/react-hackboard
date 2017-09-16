@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "body-parser": "~1.0.1",
+    "express": "~4.0.0",
+    "mongodb": "^2.2.31",
+    "mongoose": "~3.6.13",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
@@ -11,7 +15,13 @@
     "redux-createreducer": "^2.0.0",
     "redux-thunk": "^2.2.0"
   },
+  "devDependencies": {
+    "babel-loader": "^7.1.2",
+    "webpack": "^3.5.5"
+  },
   "scripts": {
+    "start_mongo": "mongod.exe --dbpath C:/data",
+    "start_backend": "node src/server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
