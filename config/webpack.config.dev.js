@@ -11,7 +11,6 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -145,7 +144,6 @@ module.exports = {
           /\.gif$/,
           /\.jpe?g$/,
           /\.png$/,
-          /\.scss$/
         ],
         loader: require.resolve('file-loader'),
         options: {
@@ -215,29 +213,6 @@ module.exports = {
           },
         ],
       },
-      {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback:'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              q: {
-                modules: true,
-                sourcemap: true,
-                importLoaders: 2,
-                localIdentName: '[name]__[local]__[hash:base64:5]'
-              }
-            },
-            'sass-loader'
-          ]
-        }),
-        loaders: [
-          require.resolve('style-loader'),
-          require.resolve('css-loader'),
-          require.resolve('sass-loader')
-        ]
-      }
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "file" loader exclusion list.
     ],
@@ -275,8 +250,6 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-
-    new ExtractTextPlugin({'styles.css'}),
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
