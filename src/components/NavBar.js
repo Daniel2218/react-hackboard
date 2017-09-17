@@ -20,9 +20,8 @@ class NavBar extends React.Component {
       <ul id={styles.header}>
         <div id={styles.topHalf}>
           <div id={styles.innerTopHalf}>
-            <a id={styles.qhackLink} rel="noopener noreferrer" target="_blank" href="http://qhacks.io/">
-              <img id={styles.logo} src={require("../images/logo.png")} alt="myHackathon logo"
-                   className={styles.hvrGrow}></img>
+            <a rel="noopener noreferrer" target="_blank" href="http://qhacks.io/">
+              <img src={require("../images/logo.png")} alt="myHackathon logo" className={styles.hvrGrow}></img>
             </a>
             Qhacks <span style={{fontWeight: "bold"}}> Admin </span>
           </div>

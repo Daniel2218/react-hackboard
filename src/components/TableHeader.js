@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import styles from "../css/application.css";
 
 class TableHeader extends React.Component {
   constructor(props) {
@@ -44,7 +43,7 @@ class TableHeader extends React.Component {
     );
 
     return (
-      <div id={styles.tableHeader}>
+      <div id="tableHeader">
         <span> <i className="fa fa-th" aria-hidden="true"></i></span>
         <h5> {page} </h5>
         {listOfButtons}

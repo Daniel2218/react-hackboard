@@ -26,6 +26,7 @@ function mapDispatchToProps(dispatch){
       dispatch(deleteRow(table, id));
     },
     onClearEmptyInputs: () => {
+      console.log("hereerere");
       dispatch(validRow({}));
     },
     onFetchRows: (table) => {

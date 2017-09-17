@@ -1,4 +1,4 @@
-#popUpBox {
+#pop-up-box {
     display: block;
     position: fixed;
     font-family: 'Open Sans', sans-serif;
@@ -40,11 +40,11 @@
     padding: 12px 10px;
     height: 25px;
 }
-#addEventbtn {
+#add-event-btn {
     background-color: #006dcc;
     color: white;
 }
-#cancelbtn {
+#cancel-btn {
     color: #333;
     background-color: #f5f5f5;
     text-shadow: 0 1px 1px rgba(255,255,255,0.75);
@@ -63,7 +63,7 @@
     text-shadow: 0 1px 0 #ffffff;
     margin-left: 10px;
 }
-.popUpInput {
+.pop-up-input {
     padding: 3px 2px;
     width: 190px;
     margin-bottom: 25px;
@@ -76,7 +76,7 @@ textarea {
     width: 90% !important;
     height: 100px;
 }
-.popUpa {
+.pop-up-a {
     padding: 6px 8px;
     font-size: 12.5px;
     margin-left: 5px;
