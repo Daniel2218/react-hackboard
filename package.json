@@ -21,7 +21,7 @@
   },
   "scripts": {
     "start_mongo": "mongod.exe --dbpath C:/data",
-    "start_backend": "node src/server.js",
+    "start_backend": "node app/server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

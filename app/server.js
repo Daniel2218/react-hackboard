@@ -10,6 +10,10 @@ var mongo = require('mongodb');
 var port = process.env.PORT || 8080;
 var router = express.Router();              // get an instance of the express Router
 var Application = require('./models/Application');
+var Sponsor = require('./models/Sponsor');
+var Prize = require('./models/Prize');
+var Judge = require('./models/Judge');
+var User = require('./models/User');
 var mongoose   = require('mongoose');
 var ObjectId = require('mongoose').Types.ObjectId;
 mongoose.connect("mongodb://localhost:27017/hackboard"); // connect to our database
@@ -26,29 +30,49 @@ router.get('/', function(req, res) {
     res.json({ message: 'hooray! welcome to our api!' });
 });
 
-
-router.route("/applications/:id")
-  .get(function(req, res){
-    Application.findById(req.params.id, function(err, application) {
-        console.log(req.params.id);
-        if (err) {
-            res.send(err);
-        }
-        res.json(application);
-    });
-  });
-
 // more routes for our API will happen herers
-router.route('/applications')
-    .get(function(req, res) {
-        Application.find(function(err, applications) {
-          if (err) {
-            res.send(err);
-          }
-          res.json(applications);
-        });
-    });
+router.route('/applications').get(function(req, res) {
+  findWrapper(req, res, Application);
+});
 
+router.route("/applications/:id").get(function(req, res){
+  Application.findById(req.params.id, function(err, application) {
+      if (err) {
+          res.send(err);
+      }
+      res.json(application);
+  });
+});
+
+router.route('/sponsors').get(function(req, res) {
+  findWrapper(req, res, Sponsor);
+});
+
+router.route('/sponsors:id').get(function(req, res){
+  Sponsor.findById(req.params.id, function(err, sponsor) {
+      if (err) {
+          res.send(err);
+      }
+      res.json(sponsor);
+  });
+});
+
+router.route('/users').get(function(req, res) {
+  findWrapper(req, res, User);
+});
+
+router.route('/prizes').get(function(req, res) {
+  findWrapper(req, res, Prize);
+});
+
+function findWrapper(req, res, Model) {
+  Model.find(function(err, documents) {
+    if (err) {
+      res.send(err);
+    }
+    res.json(documents);
+  });
+}
 // REGISTER OUR ROUTES
 // all of our routes will be prefixed with /api
 app.use('/api', router);
