@@ -15,7 +15,7 @@ class App extends Component {
     const page = this.props.page;
 
     return (
-      <div style={{overflow: "hidden !important"}}>
+      <div style={{fontFamily: 'Open Sans, sans-serif'}}>
           <NavBar page={page}/>
           <SideBar page={page} onPageChange={this.props.onPageChange}/>
           <Page page={page} />

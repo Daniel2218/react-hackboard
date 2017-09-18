@@ -6,8 +6,8 @@
 }
 .th {
   padding: 10px;
-  font-size: 12px;
-  font-weight: lighter;
+  font-size: 10px;
+  font-weight: bold;
   text-align: center;
 }
 .td {
@@ -15,7 +15,7 @@
   padding: 10px;
   text-decoration: none;
   font-family: 'Open Sans', sans-serif;
-  color: #666;
+  color: #939da8;
   vertical-align: middle;
 }
 .td > i {
