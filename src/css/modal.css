@@ -67,6 +67,7 @@
     padding: 3px 2px;
     width: 190px;
     margin-bottom: 25px;
+    font-size: 11px;
 }
 .redBorder {
     border-style: solid;
@@ -74,7 +75,7 @@
 }
 .popUpA {
     padding: 6px 8px;
-    font-size: 12.5px;
+    font-size: 11px;
     margin-left: 5px;
     float: right;
     border: 1px solid #cdcdcd;
