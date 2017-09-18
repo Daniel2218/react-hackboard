@@ -1,7 +1,6 @@
 #table {
   width: calc(100% - 10px);
   font-family: 'Open Sans', sans-serif;
-  text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
   color: #555555;
 }
 .th {
