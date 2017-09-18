@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import Link from "./Link.js";
 
-import styles from "../css/navStyle.css";
+import styles from "../css/topMenuItem.css";
 
 class HeaderLink extends React.Component {
   constructor(props) {

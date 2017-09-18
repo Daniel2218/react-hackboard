@@ -1,0 +1,14 @@
+.tableSection {
+    background-color: #eeeeee;
+    margin-left: 215px;
+    padding-left: 10px;
+    height: 84vh;
+    font-family: 'Open Sans', sans-serif;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+}
+#title {
+    font-size: 22px;
+    text-shadow: 0 1px 0 #ffffff;
+    color: #555555;
+    padding-top: 30px;
+}

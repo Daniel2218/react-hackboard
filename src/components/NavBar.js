@@ -7,6 +7,7 @@ import Dropdown from "./Dropdown.js";
 import PathHeader from "./PathHeader.js";
 
 import styles from "../css/navStyle.css";
+import hvrStyles from "../css/hvrGrow.css";
 
 class NavBar extends React.Component {
   constructor(props){
@@ -21,7 +22,7 @@ class NavBar extends React.Component {
         <div id={styles.topHalf}>
           <div id={styles.innerTopHalf}>
             <a rel="noopener noreferrer" target="_blank" href="http://qhacks.io/">
-              <img src={require("../images/logo.png")} alt="myHackathon logo" className={styles.hvrGrow}></img>
+              <img src={require("../images/logo.png")} alt="myHackathon logo" className={hvrStyles.hvrGrow}></img>
             </a>
             Qhacks <span style={{fontWeight: "bold"}}> Admin </span>
           </div>
@@ -39,7 +40,7 @@ class NavBar extends React.Component {
 function WelcomeUser() {
   return (
     <Dropdown style    ={{borderLeft: "1px solid black"}}
-              iconName ="fa fa-address-book"
+              iconName ="fa fa-user"
               value    ="Welcome User"
               extraIcon="fa fa-angle-down">
       <Link iconName="fa fa-user" value="My Profile"/>
@@ -58,6 +59,5 @@ function Messages() {
     </Dropdown>
   );
 }
-
 
 export default NavBar;

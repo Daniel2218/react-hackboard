@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import styles from "../css/navStyle.css";
+import styles from "../css/pathHeader.css";
 
 class PathHeader extends React.Component {
   constructor(props) {

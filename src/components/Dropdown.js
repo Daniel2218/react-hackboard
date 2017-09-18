@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Link from "./Link.js";
-import styles from "../css/navStyle.css";
+
+import styles from "../css/topMenuItem.css";
 
 class Dropdown extends React.Component {
   constructor(props){
@@ -9,12 +10,13 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    const iconName     = this.props.iconName;
-    const value        = this.props.value;
-    const extraIcon    = this.props.extraIcon;
+    const iconName       = this.props.iconName;
+    const value          = this.props.value;
+    const extraIcon      = this.props.extraIcon;
+    const additonalStyle = this.props.style;
 
     return (
-      <div className={styles.dropdown}>
+      <div className={styles.dropdown} style={additonalStyle}>
         <Link className={styles.dropbtn}
               iconName ={iconName}
               value    ={value}

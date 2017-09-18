@@ -1,0 +1,14 @@
+.statBox {
+    display: inline-block;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    font-weight: lighter;
+    padding: 10px 0px;
+    margin-bottom: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.statBox > i {
+    display: block;
+    margin-bottom: 10px;
+}

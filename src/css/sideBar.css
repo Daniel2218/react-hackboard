@@ -1,0 +1,31 @@
+#nav {
+    background-color: #2e363f;
+    width: 215px;
+    height:calc(100% - 70px);
+    display: table;
+    float: left;
+}
+#nav > ul { width: calc(100% - 15px); }
+#nav > ul > li {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  border-top: 1px solid #37414b;
+  border-bottom: 1px solid #1f262d;
+  line-height: 20px;
+  padding: 10px 0 10px 15px;
+  display: block;
+  height: 100%;
+  width: 100%;
+  color: #939da8;
+}
+#makeVisted {
+    color: white !important;
+    background: url(../images/menu-active.png) no-repeat scroll right center transparent !important;
+    background-color: #27a9e3 !important;
+}
+#nav > ul > li > div > i { margin-right: 11px; }
+#nav > ul > li:hover {
+  color:white;
+  background-color: #27a9e3;
+  cursor: pointer;
+}

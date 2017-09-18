@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Link from "./Link.js";
 
-import styles from "../css/navStyle.css";
+import styles from "../css/sideBar.css";
 
 class SideBar extends React.Component {
     constructor(props) {
@@ -10,7 +10,7 @@ class SideBar extends React.Component {
     }
 
     render() {
-      const page = this.props.page;
+      const page         = this.props.page;
       const onPageChange = this.props.onPageChange;
 
       return (

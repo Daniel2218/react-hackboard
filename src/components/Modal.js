@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import '../css/popUpBox.css';
+import styles from "../css/modal.css";
 
 class Modal extends React.Component {
   constructor(props) {
@@ -70,7 +70,6 @@ class Modal extends React.Component {
   }
 
   render() {
-    console.dir(this.props);
     const tableHeaders = this.props.tableHeaders;
     const emptyInputs  = this.props.emptyInputs;
     const clickedRow   = this.props.clickedRow;
@@ -78,15 +77,15 @@ class Modal extends React.Component {
     var page = this.props.page;
     var headers = [];
     var th = "";
-    var classes = "pop-up-input";
+    var classes = styles.popUpInput;
     var clickedRowVal = "";
     var buttonText = (Object.keys(clickedRow).length === 0 ? "Add " : "Edit ") + page;
 
     page = page.substring(0, page.length - 1);
-``
+
     for(var i = 0; i < tableHeaders.length; i++) {
       th = tableHeaders[i];
-      classes += emptyInputs.indexOf(th) !== -1 ? " redBorder" : "";
+      classes += emptyInputs.indexOf(th) !== -1 ? " " + styles.redBorder : "";
       clickedRowVal = clickedRow[i] === undefined ? "" : clickedRow[i];
 
       headers.push(
@@ -97,32 +96,32 @@ class Modal extends React.Component {
         </div>
       );
 
-      classes = "pop-up-input";
+      classes = styles.popUpInput;;
     }
 
     return (
       <div>
-        <div id ="pop-up-box" tabIndex="1" onKeyDown={this.handleKeyPress}>
-            <div id="top">
-                <p id="makeInline"> Add a new {page}</p>
-                <i onClick={this.closeModal} id="floatRight" className="fa fa-times fa-lg" aria-hidden="true"></i>
+        <div id = {styles.popUpBox} tabIndex="1" onKeyDown={this.handleKeyPress}>
+            <div id={styles.top}>
+                <p id={styles.makeInline}> Add a new {page}</p>
+                <i onClick={this.closeModal} id={styles.floatRight} className="fa fa-times fa-lg" aria-hidden="true"></i>
             </div>
-            <div id="middle">
+            <div id={styles.middle}>
               <div>
                 { headers }
               </div>
             </div>
-            <div id="bottom">
-                <div id="positionLeft">
-                    <a className="pop-up-a" id="add-event-btn"
+            <div id={styles.bottom}>
+                <div id={styles.positionLeft}>
+                    <a className={styles.popUpA} id={styles.addEventBtn}
                        onClick={() => { this.handleButtonClick(buttonText) }} href="#">
                         {buttonText}
                     </a>
-                    <a className="pop-up-a" id="cancel-btn" onClick={this.closeModal} href="#"> Cancel </a>
+                    <a className={styles.popUpA} id={styles.cancelBtn} onClick={this.closeModal} href="#"> Cancel </a>
                 </div>
             </div>
         </div>
-        <div id ="screen" onClick={this.closeModal}></div>
+        <div id={styles.screen} onClick={this.closeModal}></div>
       </div>
     );
   }

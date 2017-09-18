@@ -4,9 +4,7 @@ import SideBar from "./SideBar.js";
 import Page from "./Page.js";
 
 import '../css/reset.css';
-
-// import '../css/navStyle.css';
-// import '../css/application.css';
+import styles from "../css/footer.css";
 
 class App extends Component {
   constructor(props) {
@@ -17,16 +15,22 @@ class App extends Component {
     const page = this.props.page;
 
     return (
-      <div>
+      <div style={{overflow: "hidden !important"}}>
           <NavBar page={page}/>
           <SideBar page={page} onPageChange={this.props.onPageChange}/>
-          {/* <Page page={page} /> */}
-          {/* <footer id="footer">
-            <p>2017 © QHacks Exec. Brought to you by Daniel Lucia</p>
-          </footer> */}
+          <Page page={page} />
+          <Footer />
       </div>
     );
   }
+}
+
+function Footer() {
+  return (
+    <footer id={styles.footer}>
+      <p>2017 © QHacks Exec. Brought to you by Daniel Lucia</p>
+    </footer>
+  );
 }
 
 export default App;
