@@ -7,7 +7,7 @@
     text-align: center;
     border-right: 1px solid black;
     margin-right: -3px; /* Makes size right up to border so hover doesn't look weird*/
-    font-size: 11px;
+    font-size: 10px;
 }
 .dropdownContent {
     display: none;
@@ -15,7 +15,7 @@
     top:35px;
     background-color: white;
     color: #666;
-    font-size: 11px;
+    font-size: 10px;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;

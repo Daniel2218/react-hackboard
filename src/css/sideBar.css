@@ -8,7 +8,7 @@
 #nav > ul { width: calc(100% - 15px); }
 #nav > ul > li {
   font-family: 'Open Sans', sans-serif;
-  font-size: 12px;
+  font-size: 11px;
   border-top: 1px solid #37414b;
   border-bottom: 1px solid #1f262d;
   line-height: 20px;

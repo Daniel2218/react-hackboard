@@ -4,7 +4,8 @@ import SideBar from "./SideBar.js";
 import Page from "./Page.js";
 
 import '../css/reset.css';
-import styles from "../css/footer.css";
+import footerStyles from "../css/footer.css";
+import appStyles from "../css/app.css";
 
 class App extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class App extends Component {
     const page = this.props.page;
 
     return (
-      <div style={{fontFamily: 'Open Sans, sans-serif'}}>
+      <div id={appStyles.app}>
           <NavBar page={page}/>
           <SideBar page={page} onPageChange={this.props.onPageChange}/>
           <Page page={page} />
@@ -27,7 +28,7 @@ class App extends Component {
 
 function Footer() {
   return (
-    <footer id={styles.footer}>
+    <footer id={footerStyles.footer}>
       <p>2017 © QHacks Exec. Brought to you by Daniel Lucia</p>
     </footer>
   );

@@ -1,5 +1,5 @@
-html, body {
-    background-color: #2e363f;
+body {
+    /*background-color: #2e363f;*/
 }
 /* Header */
 #header {
@@ -9,10 +9,6 @@ html, body {
     color: white;
     font-size: 9px !important;
     font-family: 'Open Sans', sans-serif;
-}
-.divSize2 { width: 75px; }
-.faAngleRight {
-    color: black;
 }
 #iSpace2 {
     margin-left: 8px;
@@ -37,13 +33,9 @@ html, body {
      text-decoration: none;
      color: #939da8;
 }
-img {
+#logo {
   width: 45px;
   margin-right: 4px !important;
-}
-h1 {
-    display: inline-block;
-    font-size: 20px;
 }
 @media screen and (max-width: 970px) {
     #nav > ul > li > a > span {
