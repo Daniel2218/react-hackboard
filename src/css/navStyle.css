@@ -23,7 +23,7 @@
 #innerTopHalf {
     display: table-cell;
     vertical-align: middle;
-    font-size: 18px;
+    font-size: 20px;
 }
 #innerTopHalf > a {
      text-decoration: none;
