@@ -6,6 +6,9 @@ import HeaderLink from "./HeaderLink.js";
 import Dropdown from "./Dropdown.js";
 import PathHeader from "./PathHeader.js";
 
+import styles from "../css/navStyle.css";
+import hvrStyles from "../css/hvrGrow.css";
+
 class NavBar extends React.Component {
   constructor(props){
     super(props);
@@ -15,19 +18,19 @@ class NavBar extends React.Component {
     const page = this.props.page;
 
     return (
-      <ul id = "header">
-        <div id="top-half">
-          <div id="inner-top-half">
+      <ul id={styles.header}>
+        <div id={styles.topHalf}>
+          <div id={styles.innerTopHalf}>
             <a rel="noopener noreferrer" target="_blank" href="http://qhacks.io/">
-              <img src={require("../images/logo.png")} alt="myHackathon logo" className="navStyleImg hvr-grow"></img>
+              <img id={styles.logo} src={require("../images/logo.png")} alt="myHackathon logo" className={hvrStyles.hvrGrow}></img>
             </a>
             Qhacks <span style={{fontWeight: "bold"}}> Admin </span>
           </div>
         </div>
         <WelcomeUser />
         <Messages />
-        <HeaderLink className="dropbtn" iconName="fa fa-cog" value="Settings" />
-        <HeaderLink className="dropbtn" iconName="fa fa-level-up" value="Logout" />
+        <HeaderLink iconName="fa fa-cog" value="Settings" />
+        <HeaderLink iconName="fa fa-level-up" value="Logout" />
         <PathHeader page={page}/>
       </ul>
     );
@@ -37,9 +40,7 @@ class NavBar extends React.Component {
 function WelcomeUser() {
   return (
     <Dropdown style    ={{borderLeft: "1px solid black"}}
-              className="dropbtn"
-              divClassName="dropdown"
-              iconName ="fa fa-address-book"
+              iconName ="fa fa-user"
               value    ="Welcome User"
               extraIcon="fa fa-angle-down">
       <Link iconName="fa fa-user" value="My Profile"/>
@@ -50,16 +51,13 @@ function WelcomeUser() {
 
 function Messages() {
   return (
-    <Dropdown divClassName="dropdown"
-              className="dropbtn"
-              iconName ="fa fa-envelope-o"
+    <Dropdown iconName ="fa fa-envelope-o"
               value    ="Messages"
               extraIcon="fa fa-angle-down">
-      <Link className="dropbtn" href="#" iconName="" value="Link 1"> </Link>
-      <Link className="dropbtn" href="#" iconName="" value="Link 2"> </Link>
+      <Link className={styles.dropbtn} href="#" iconName="" value="Link 1"> </Link>
+      <Link className={styles.dropbtn}  href="#" iconName="" value="Link 2"> </Link>
     </Dropdown>
   );
 }
-
 
 export default NavBar;

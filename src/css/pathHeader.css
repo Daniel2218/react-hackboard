@@ -1,0 +1,16 @@
+#pathHeader {
+    margin-top: 2px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    font-size: 10px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: white;
+}
+#pathHeader > a:first-child {
+    margin-left: 10px;
+}
+#spnGrey { color: #666666; }
+#iSpace1 {
+  margin-left: 9px;
+  margin-right: 9px;
+}

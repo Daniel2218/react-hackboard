@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import styles from "../css/tableHeader.css";
+
 class TableHeader extends React.Component {
   constructor(props) {
     super(props);
@@ -36,14 +38,14 @@ class TableHeader extends React.Component {
   render() {
     const page = this.props.page;
     const listOfButtons = this.getButtons(page).map((buttonInfo) =>
-      <button onClick={buttonInfo.handleClick} style={buttonInfo.style}>
+      <button className={styles.tableHeaderBtn} onClick={buttonInfo.handleClick} style={buttonInfo.style}>
             <i className={buttonInfo.iconName} aria-hidden='true'></i>
             {buttonInfo.name}
       </button>
     );
 
     return (
-      <div id="tableHeader">
+      <div id={styles.tableHeader}>
         <span> <i className="fa fa-th" aria-hidden="true"></i></span>
         <h5> {page} </h5>
         {listOfButtons}

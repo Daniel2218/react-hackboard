@@ -1,0 +1,35 @@
+#tableHeader{
+    margin-top: 40px;
+    border: 1px solid #cdcdcd;
+    padding: 12px;
+    font-weight: bold;
+    font-size: 12px;
+    width: calc(100% - 35px);
+    font-family: 'Open Sans', sans-serif;
+}
+#tableHeader > span {
+    float: left;
+    margin-right: 10px;
+}
+#tableHeader > button, #tableHeader > h5 {
+    display: inline;
+}
+.tableHeaderBtn {
+    float: right;
+    width: 100px;
+    padding: 4px;
+    font-size: 10.5px;
+    background-color: #2e363f;
+    color: white;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+}
+.tableHeaderBtn > i {
+    margin-right: 4px;
+}
+.tableHeaderBtn:hover {
+    background-color: white;
+    color: black;
+}

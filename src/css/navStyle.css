@@ -1,144 +1,37 @@
-html, body {
-    font-family: 'Open Sans', sans-serif;
-    background-color: #2e363f;
-}
-/* Header */
 #header {
     width: 100%;
     height: 70px;
     background-color: #1f262d;
     color: white;
     font-size: 9px !important;
+    font-family: 'Open Sans', sans-serif;
 }
-.dropdown {
-    width: 90px;
-    display: inline-block;
-    padding-top: 12px;
-    padding-left: 8px;
-    padding-bottom: 14px;
-    text-align: center;
-    border-right: 1px solid black;
-    margin-right: -3px; /* Makes size right up to border so hover doesn't look weird*/
-}
-.dropdown-content {
-    display: none;
-    position: absolute;
-    top:35px;
-    background-color: white;
-    color: #666;
-    font-size: 12px;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-.dropdown-content li {
-    padding: 3px 0px;
-    border-bottom: 1px solid #ccc;
-}
-.dropdown-content li > div {
-    padding: 5px 10px;
-    text-align: left;
-    text-decoration: none;
-    display: block;
-}
-.dropdown-content li > div > i {
-    margin-right: 5px;
-}
-.dropdown-content li > div:hover {
-    background-color: #666 !important;
-    color: white;
-    cursor: pointer;
-}
-.div-size-1 { width: 60px; }
-.div-size-2 { width: 75px; }
-.dropdown:hover .dropdown-content { display: block; }
-.dropdown:hover { background-color: black; }
-.dropbtn {
-    margin-left: auto;
-    margin-right: auto;
-    color: #999;
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
-}
-.dropbtn > div > i {
-  margin-right: 5px;
-}
-#pathheader {
-    padding-top: 13px;
-    padding-bottom: 13px;
-    font-size: 10px;
-    background-color: white;
-    overflow: hidden;
-}
-.fa-angle-right {
-    color: black;
-}
-#pathheader > a:first-child {
-    margin-left: 10px;
-}
-#spn-grey { color: #666666; }
-#i-space-1 { margin-left: 9px; }
-#i-space-2 {
+#iSpace2 {
     margin-left: 8px;
     margin-right: 8px;
 }
 /* Side Bar */
-#nav {
-    background-color: #2e363f;
-    width:180px;
-    height:calc(100% - 70px);
-    display: table;
-    float: left;
-}
-#top-half {
+#topHalf {
     background-color: #1f262d;
     color:white;
-    height: 70px;
+    height: 100%;
     width: 200px;
     text-align: center;
     display: table;
     float: left;
 }
-#inner-top-half {
+#innerTopHalf {
     display: table-cell;
     vertical-align: middle;
-    font-size: 18px;
-}
-h1 {
-    display: inline-block;
     font-size: 20px;
 }
-#nav > ul { width: 200px; }
-#nav > ul > li {
-    font-size: 11px;
-    border-top: 1px solid #37414b;
-    border-bottom: 1px solid #1f262d;
-    line-height: 20px;
-    padding: 10px 0 10px 15px;
-    display: block;
-    height: 100%;
-     color: #939da8;
-}
-/*#nav > ul > li > a {
-    padding: 10px 0 10px 15px;
-    display: block;
-    height: 100%;
-}*/
-/*#makeVisted { background-color: #27a9e3; }*/
-#makeVisted {
-    color: white !important;
-    background: url(../images/menu-active.png) no-repeat scroll right center transparent !important;
-    background-color: #27a9e3 !important;
-}
-a {
+#innerTopHalf > a {
      text-decoration: none;
      color: #939da8;
 }
-.navStyleImg { width: 40px; margin-right: 4px !important;}
-#nav > ul > li:hover { color:white; }
-#nav > ul > li > div > i { margin-right: 10px; }
-#nav > ul > li:hover {
-  background-color: #27a9e3;
-  cursor: pointer;
+#logo {
+  width: 45px;
+  margin-right: 4px !important;
 }
 @media screen and (max-width: 970px) {
     #nav > ul > li > a > span {
@@ -198,7 +91,7 @@ a {
     #stat-box-4 { width: 47.4% !important; }
 }
 /* Grow code*/
-.hvr-grow {
+.hvrGrow {
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
@@ -207,16 +100,7 @@ a {
   -webkit-transition-property: transform;
   transition-property: transform;
 }
-.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+.hvrGrow:hover, .hvrGrow:focus, .hvrGrow:active {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
-}
-/* Footer */
-#footer {
-    color: #666;
-    font-size: 11px;
-    padding: 10px 0px;
-    width: 100%;
-    background-color: #2e363f;
-    text-align: center;
 }

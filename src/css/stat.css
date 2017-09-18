@@ -1,0 +1,28 @@
+#outer {
+    background-color: #eeeeee;
+    padding-top: 30px;
+}
+#statBox1 {
+    margin-right: 8px;
+    background-color: #27a9e3;
+    width: 25%;
+    min-width: 120px;
+}
+#statBox2 {
+    margin-right: 8px;
+    background-color: #28b779;
+    width:15%;
+    min-width: 120px;
+}
+#statBox3 {
+    margin-right: 8px;
+    background-color: #f74d4d;
+    width:15%;
+    min-width: 120px;
+}
+#statBox4 {
+    margin-right: 8px;
+    background-color: #2255a4;
+    width:15%;
+    min-width: 120px;
+}

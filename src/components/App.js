@@ -5,8 +5,8 @@ import Page from "./Page.js";
 import Login from "./Login.js";
 
 import '../css/reset.css';
-import '../css/navStyle.css';
-import '../css/application.css';
+import footerStyles from "../css/footer.css";
+import appStyles from "../css/app.css";
 
 class App extends Component {
   constructor(props) {
@@ -17,16 +17,22 @@ class App extends Component {
     const page = this.props.page;
 
     return (
-      <div>
+      <div id={appStyles.app}>
           <NavBar page={page}/>
           <SideBar page={page} onPageChange={this.props.onPageChange}/>
           <Page page={page} />
-          <footer id="footer">
-            <p>2017 © QHacks Exec. Brought to you by Daniel Lucia</p>
-          </footer>
+          <Footer />
       </div>
     );
   }
+}
+
+function Footer() {
+  return (
+    <footer id={footerStyles.footer}>
+      <p>2017 © QHacks Exec. Brought to you by Daniel Lucia</p>
+    </footer>
+  );
 }
 
 export default App;

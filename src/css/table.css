@@ -1,0 +1,37 @@
+#table {
+  width: calc(100% - 10px);
+  font-family: 'Open Sans', sans-serif;
+}
+.th {
+  padding: 10px;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+.td {
+  font-size: 11px;
+  padding: 10px;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  color: #939da8;
+  vertical-align: middle;
+}
+.td > i {
+  opacity: 0;
+}
+#table, .th, .td {
+  border: 1px solid #cdcdcd;
+}
+.tr:hover { background-color: #eeeeee; }
+.trColor {
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+#trashIcon {
+    position: absolute;
+    cursor: pointer;
+    right: 30px;
+    margin-top: -4px;
+    color: red;
+    font-size: 20px !important;
+}

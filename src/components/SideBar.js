@@ -2,17 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Link from "./Link.js";
 
+import styles from "../css/sideBar.css";
+
 class SideBar extends React.Component {
     constructor(props) {
       super(props);
     }
 
     render() {
-      const page = this.props.page;
+      const page         = this.props.page;
       const onPageChange = this.props.onPageChange;
 
       return (
-        <div id = "nav">
+        <div id ={styles.nav}>
           <ul>
             <Link page={page} onPageChange={onPageChange} iconName="fa fa-files-o" value="Applications"> </Link>
             <Link page={page} onPageChange={onPageChange} iconName="fa fa-gift" value="Prizes"> </Link>
