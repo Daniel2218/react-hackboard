@@ -22,14 +22,7 @@
 #table, .th, .td {
   border: 1px solid #cdcdcd;
 }
-hr {
-  margin: 20px 0;
-  border: 0;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #fff;
-  border-top-color: #dadada;
-}
-tr:hover { background-color: #eeeeee; }
+.tr:hover { background-color: #eeeeee; }
 .trColor {
   background-color: #f9f9f9;
   cursor: pointer;

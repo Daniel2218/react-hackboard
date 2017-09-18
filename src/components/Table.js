@@ -56,7 +56,7 @@ class Table extends React.Component {
     const rows = this.props.table[page].rows === undefined ? [] : this.props.table[page].rows;
 
     return rows.map((row) =>
-      <tr className={styles.trColor}
+      <tr className={styles.trColor + " " + styles.tr}
           onClick={this.getClickedRow.bind(this, row)}
           onMouseOver={this.mouseOver.bind(this,row)}
           onMouseOut={this.mouseOut}>
@@ -131,7 +131,7 @@ class Table extends React.Component {
                      onToggleModal={toggleModal} />
         <table id={styles.table}>
           <tbody>
-            <tr>{listOfHeaders}</tr>
+            <tr className={styles.tr}>{listOfHeaders}</tr>
             {this.getRows()}
           </tbody>
         </table>

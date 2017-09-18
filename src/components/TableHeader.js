@@ -38,7 +38,7 @@ class TableHeader extends React.Component {
   render() {
     const page = this.props.page;
     const listOfButtons = this.getButtons(page).map((buttonInfo) =>
-      <button onClick={buttonInfo.handleClick} style={buttonInfo.style}>
+      <button className={styles.tableHeaderBtn} onClick={buttonInfo.handleClick} style={buttonInfo.style}>
             <i className={buttonInfo.iconName} aria-hidden='true'></i>
             {buttonInfo.name}
       </button>

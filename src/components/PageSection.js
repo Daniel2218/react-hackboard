@@ -15,7 +15,7 @@ class PageSection extends React.Component {
         <div id={styles.title}>
             <h1> {this.props.page} </h1>
         </div>
-        <hr></hr>
+        <hr id={styles.tableHR}></hr>
         {this.props.children}
       </div>
     );
