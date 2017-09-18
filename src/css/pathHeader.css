@@ -10,4 +10,7 @@
     margin-left: 10px;
 }
 #spnGrey { color: #666666; }
-#iSpace1 { margin-left: 9px; }
+#iSpace1 {
+  margin-left: 9px;
+  margin-right: 9px;
+}
