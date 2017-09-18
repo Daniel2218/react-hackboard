@@ -11,11 +11,7 @@
     float: left;
     margin-right: 10px;
 }
-#tableHeader > button {
-    display: inline;
-}
-#tableHeader > h5 {
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+#tableHeader > button, #tableHeader > h5 {
     display: inline;
 }
 button {
